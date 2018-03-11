@@ -36,7 +36,7 @@ function getCustInfo($number)
 	if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 		$name = $row[0];
 	} else {
-		echo "1, Invalid Phone Number Provided";
+		echo "1, Invalid Phone Number Provided " . $number;
 		exit();
 	}
 
