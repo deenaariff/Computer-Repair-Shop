@@ -1,0 +1,4 @@
+INSERT INTO Customers VALUES ('408-249-5666','Deen Aarif');
+INSERT INTO CustomerBill VALUES ('408-249-5666',DATE '2015-12-17',20.00,40.00,5);
+
+
