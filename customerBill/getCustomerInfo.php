@@ -64,13 +64,14 @@ function getCustInfo($number)
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 
 		// do a nother query here to get the model for a given item id
+		$itemId = $row[0];
 
 		$queryString2 = "SELECT model FROM RepairItem WHERE itemId = :itemId";
 
-		$query2 = oci_parse($conn,$queryString);
+		$query2 = oci_parse($conn,$queryString2);
 		/* bind to the item id */
-		oci_bind_by_name($query,':itemId',$row[0]);
-		$res = oci_execute($query);
+		oci_bind_by_name($query2,':itemId',$itemId2);
+		$res = oci_execute($query2);
 
 		if(!$res) {
 			echo "1, Error in Database Query";
@@ -79,7 +80,7 @@ function getCustInfo($number)
 
 		/* push the model in to the model array */
 
-		if(($row2=oci_fetch_array($query,OCI_BOTH)) != false) {
+		if(($row2=oci_fetch_array($query2,OCI_BOTH)) != false) {
 			array_push($models,$row2[0]);
 		}
 
