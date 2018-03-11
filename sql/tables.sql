@@ -31,7 +31,7 @@ Create Table ServiceContract (
         contractId VARCHAR(10) Primary key,
         startDate DATE,
         endDate DATE,
-        custPhone VARCHAR(10),
+        custPhone VARCHAR(14),
 	itemId1 VARCHAR(5),
 	itemId2 VARCHAR(5),
 	contractType VARCHAR(6) Check (contractType in ('SINGLE','GROUP')),
@@ -43,7 +43,7 @@ Create Table ServiceContract (
 Create Table RepairPerson (
 	employeeNo VARCHAR(10) Primary key,
 	empName VARCHAR(10),
-	empPhone VARCHAR(10)
+	empPhone VARCHAR(14)
 );
 
 Create Table RepairJob (
