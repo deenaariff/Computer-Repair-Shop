@@ -63,6 +63,7 @@ Create Table RepairJob (
 Create Table RepairLog (
 	itemId VARCHAR(10),
         contractId VARCHAR(10),
+        description VARCHAR(50),
         custPhone VARCHAR(14),
         empNo VARCHAR(14),
         timeOfArrival DATE,
