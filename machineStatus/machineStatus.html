@@ -1,0 +1,110 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="./machineStatus.css">
+      <link rel="stylesheet" type="text/css" href="../css/animate.css">
+      <script src="../js/wow.min.js"></script>
+      <script>
+        // new WOW().init();
+      </script>
+
+   </head>
+   <body>
+
+      <style>
+      	form {
+      		width: 500px;
+      		margin: 0 auto;
+      	}
+      	.search {
+      		padding: 6px 15px 6px 30px;
+      		margin: 3px;
+      	}
+      	.rounded {
+      		border-radius: 15px;
+
+      	}
+      </style>
+
+   	<div class="lighter">
+	      <form class="example wow fadeIn">
+	      	<span><input type="text" class="search rounded" placeholder="Search for machine Id.."></span>
+	      	<span><input type="text" class="search rounded" placeholder="Search for customer Phone.."></span>
+	      </form>
+	  </div>
+      <div class="container-table wow fadeIn">
+         <div style="border-radius: 5px;" class="table">
+            <table style="border-radius: 5px;">
+               <thead>
+                  <tr class="table-head">
+                     <th class="column">Machine Id</th>
+                     <th class="column">Service Id</th>
+                     <th class="column">Machine Model</th>
+                     <th class="column">Customer Phone</th>
+                     <th class="colum4">Time of Arrival</th>
+                     <th class="column">Cost</th>
+                     <th class="column">Status</th>
+                     <th class="column">Save</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td class="column">001</td>
+                     <td class="column">200398</td>
+                     <td class="column">iPhone X 64Gb Grey</td>
+                     <td class="column">xxx-xxx-xxxx</td>
+                     <td class="column">7:00</td>
+                     <td class="column">$400</td>
+                     <td class="column">
+                     	<form>
+	                        <select>
+	                            <option value="DONE">DONE</option>
+	                            <option value="UNDER_REPAIR">UNDER_REPAIR</option>
+	                            <option value="READY">READY</option>
+	                        </select>
+                    	</form>
+                     </td>
+                     <td class="column"><i class="far fa-edit"></i></td>
+                  </tr>
+                  <tr>
+                     <td class="column1">002</td>
+                     <td class="column2">200397</td>
+                     <td class="column3">Samsung S8 Black</td>
+                     <td class="column4">xxx-xxx-xxxx</td>
+                     <td class="column">7:00</td>
+                     <td class="column">$400</td>
+                     <td class="column">
+                     	<form>
+	                        <select>
+	                            <option value="DONE">DONE</option>
+	                            <option value="UNDER_REPAIR">UNDER_REPAIR</option>
+	                            <option value="READY">READY</option>
+	                        </select>
+                    	</form>
+                     </td>
+                     <td class="column6"><i class="far fa-edit"></i></td>
+                  </tr>
+                  <tr>
+                     <td class="column1">003</td>
+                     <td class="column2">200396</td>
+                     <td class="column3">Game Console Controller</td>
+                     <td class="column4">xxx-xxx-xxxx</td>
+                     <td class="column">7:00</td>
+                     <td class="column">$400</td>
+                     <td class="column">
+                     	<form>
+	                        <select>
+	                            <option value="DONE">DONE</option>
+	                            <option value="UNDER_REPAIR">UNDER_REPAIR</option>
+	                            <option value="READY">READY</option>
+	                        </select>
+                    	</form>
+                     </td>
+                     <td class="column6"><i class="far fa-edit"></i></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

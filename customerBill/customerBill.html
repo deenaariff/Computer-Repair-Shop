@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A simple, clean, and responsive HTML invoice template</title>
+    <link rel="stylesheet" type="text/css" href="./customerBill.css">
+    <script src="../js/dbTransactions.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="./customerBill.js"></script>
+</head>
+
+<body>
+    <style>
+         .main {
+             height: 100%;
+             width: 100%;
+             display: table;
+         }
+         .wrapper {
+             display: table-cell;
+             height: 100%;
+             vertical-align: middle;
+         }
+         input::-webkit-input-placeholder{
+            color:#fff;
+         }
+         input:-moz-placeholder {
+            color:#fff;
+         }
+         input[type=text], select, textarea {
+            width: 20%;
+            margin: 0 auto;
+            margin-bottom: 10%;
+            margin-left: 15px;
+            padding: 12px;
+            border-radius: 4px;
+            resize: vertical;
+            color: #fff;
+            background: #000;
+            border: none;
+        }
+
+        input[type=text]:focus {
+          outline-color: transparent;
+          outline-style: none;
+        }
+      </style>
+
+
+    <div class = "main">
+        <div class = "wrapper">
+            <input type="text" id="input" name="model" placeholder="Enter A Customer Phone Number">
+            <div class="invoice-box">
+               
+                <table id="billTable" cellpadding="0" cellspacing="0">
+                    <tr class="top">
+                        <td colspan="2">
+                            <table>
+                                <tr>
+                                    <td id="cust_info">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <tr class="information">
+                        <td colspan="2">
+                            <table>
+                                <tr>                          
+                                    <td id="s_contract">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
