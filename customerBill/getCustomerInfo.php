@@ -37,7 +37,7 @@ function getCustInfo($number)
 
 	$row= oci_fetch_array($query,OCI_BOTH);
 	$name = $row[0];
-	echo "1, " . $queryString;
+	echo "1, " . $row;
 	exit();
 
 	/*if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
