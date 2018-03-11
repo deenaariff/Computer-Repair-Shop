@@ -3,8 +3,7 @@
 --triggers.sql
 
 Create or Replace TRIGGER RepairJob_after_update_trig
-After UPDATE ON RepairJob
-	FOR EACH ROW
+After UPDATE Of status ON RepairJob
 DECLARE
 	v_job RepairJob%rowtype;
 	v_contractType RepairItem.contractType%type;
@@ -21,8 +20,8 @@ BEGIN
 		Delete From RepairJob Where custPhone = v_job.custPhone  AND timeOfArrival = v_job.timeOfArrival AND itemId = v_job.itemId;
 		
 		Select contractType into v_contractType
-		From ServiceContract
-		Where v_job.contractId = contractId;
+		From RepairItem
+		Where v_job.itemId = itemId;
 
 		IF v_contractType = 'NONE' THEN
 			Update CustomerBill

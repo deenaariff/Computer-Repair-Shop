@@ -20,9 +20,10 @@ Create Table Customers (
 
 Create Table RepairItem (
 	itemId VARCHAR(10) Primary key,
-	model VARCHAR(10),
+	model VARCHAR(20),
 	price NUMBER(6, 2),
 	year NUMBER(4),
+	contractType VARCHAR(6) Check (contractType in ('NONE','SINGLE','GROUP')),
 	itemType VARCHAR(8) Check (itemType in ('COMPUTER', 'PRINTER'))
 );
 
@@ -33,7 +34,7 @@ Create Table ServiceContract (
         custPhone VARCHAR(10),
 	itemId1 VARCHAR(5),
 	itemId2 VARCHAR(5),
-	contractType VARCHAR(6) Check (contractType in ('NONE','SINGLE','GROUP')),
+	contractType VARCHAR(6) Check (contractType in ('SINGLE','GROUP')),
         Foreign key (custPhone) references Customers(phoneNo),
 	Foreign key (itemId1) references RepairItem(itemId),
 	Foreign key (itemId2) references RepairITem(itemId)

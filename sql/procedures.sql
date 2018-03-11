@@ -13,7 +13,9 @@ Create or Replace Procedure acceptMachine(n_name in VARCHAR, model in VARCHAR, c
 AS
 
 l_contract ServiceContract%rowtype;
-l_phone Customers%type;
+l_phone Customers.phoneNo%type;
+l_price RepairItem.price%type;
+l_year RepairItem.year%type;
 
 BEGIN
 
@@ -33,31 +35,38 @@ BEGIN
 			Set itemId1 = n_item, custPhone = l_phone
 			Where cId = l_contract.contractId;
 
-		IF n_item2 is NULL THEN
-                	Insert into RepairItem values(n_item1, NULL, NULL, NULL, 'SINGLE', NULL);
-        	ELSE
-                	Insert into RepairItem values(n_item1, NULL, NULL, NULL, 'GROUP', NULL);
-                	Insert into RepairItem values(n_item2, NULL, NULL, NULL, 'GROUP', NULL);
-        	END IF;  
+			Insert into RepairItem values(n_item, model, l_price, l_year, l_contract.contractType, 'COMPUTER');
+			Insert into RepairJob values(n_item, l_contract.contractId, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YYYY'), 'UNDER_REPAIR');
+		ELSE
+			IF l_contract.contractType = 'GROUP' THEN
+				Update ServiceContract
+				Set itemId2 = n_item, custPhone = l_phone
+				Where cId = l_contract.contractId;
+				
+				Insert into RepairItem values(n_item, model, l_price, l_year, l_contract.contractType, 'PRINTER');
+				Insert into RepairJob values(n_item, l_contract.contractId, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YYYY'), 'UNDER_REPAIR');
+			ELSE
+				DBMS_OUTPUT.put_line('Error: Only one item allowed for Single contracts');
+				Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
+				Insert into RepairJob values(n_item, NULL, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YYYY'), 'UNDER_REPAIR');
+			END IF;
+		END IF;
 	ELSE
 		DBMS_OUTPUT.put_line('Contract not valid');
-		IF n_item2 is NULL THEN
-                	Insert into RepairItem values(n_item1, NULL, NULL, NULL, 'NONE', NULL);
-        	ELSE
-                	Insert into RepairItem values(n_item1, NULL, NULL, NULL, 'NONE', NULL);
-                	Insert into RepairItem values(n_item2, NULL, NULL, NULL, 'NONE', NULL);
-        	END IF;
+     		Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
+		Insert into RepairJob values(n_item, NULL, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YYYY'), 'UNDER_REPAIR');
 	END IF;
+
 END;
 /
 Show errors;
 
-Create or Replace Procedure newRepairJob(n_item in VARCHAr, cId in VARCHAR, cust in VARCHAR, emp inVARCHAR)
+Create or Replace Procedure updateMachineStatus(item in VARCHAR, n_status in VARCHAR)
 AS
-
 BEGIN
-	Insert into RepairJob values(n_item, cId, cust, emp, to_date(SYSDATE, 'DD-MM-YYYY'), 'UNDER_REPAIR');
-
+	Update RepairJob
+	Set status = n_status
+	Where itemId = item;
 END;
 /
 Show errors;
