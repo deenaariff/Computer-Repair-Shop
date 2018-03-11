@@ -14,7 +14,7 @@ getCustInfo($arg1);
 
 function getCustInfo($number)
 {
-	$conn = oci_connect('mcai','magstar816','dbserver.engr.scu/db11g');
+	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
 		echo "1, Error Connecting To Database";
 		exit();
