@@ -22,10 +22,12 @@ function getCustInfo($number)
 
 	/* query for a customer name given the customer phone number */
 
-	$queryString = "SELECT name FROM Customers WHERE phoneNo=:phone";
+	//$queryString = "SELECT name FROM Customers WHERE phoneNo=:phone";
+
+	$queryString = "SELECT * FROM CUSTOMERS";
 
 	$query = oci_parse($conn,$queryString);
-	oci_bind_by_name($query,':phone',$number);
+	//oci_bind_by_name($query,':phone',$number);
 	$res = oci_execute($query);
 
 	if(!$res) {
