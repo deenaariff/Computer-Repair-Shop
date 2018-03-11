@@ -70,7 +70,7 @@
 		  	}
 	    }
 
-	    var test_callback = funciton(result,data) {
+	    var test_callback = function(result,data) {
 	    	console.log(result);
 	    	console.log(data);
 	    }
