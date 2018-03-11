@@ -1,3 +1,4 @@
+sh pull.sh
 rm -rf /webpages/mcai/project
 mkdir /webpages/mcai/project
 cp -r ./* /webpages/mcai/project/
