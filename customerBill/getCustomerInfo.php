@@ -65,7 +65,7 @@ function getCustInfo($number)
 
 		// do a nother query here to get the model for a given item id
 
-		$queryString2 = "SELECT model FROM RepairItem WHERE itemId = :id";
+		$queryString2 = "SELECT model FROM RepairItem WHERE itemId = :itemId";
 
 		$query2 = oci_parse($conn,$queryString);
 		/* bind to the item id */
@@ -97,7 +97,7 @@ function getCustInfo($number)
 	$description_str = implode("|",$descriptions);
 	$dates_str = implode("|",$dates);
 
-	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $contract_date);
+	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str);
 	$str = implode (",", $arr);
     echo "0," . $str;
 }
