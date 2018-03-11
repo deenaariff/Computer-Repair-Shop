@@ -70,7 +70,7 @@ function getCustInfo($number)
 
 		$query2 = oci_parse($conn,$queryString2);
 		/* bind to the item id */
-		oci_bind_by_name($query2,':itemId',$itemId2);
+		oci_bind_by_name($query2,':itemId',$itemId);
 		$res = oci_execute($query2);
 
 		if(!$res) {
