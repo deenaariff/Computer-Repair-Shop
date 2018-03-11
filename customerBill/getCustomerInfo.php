@@ -22,12 +22,10 @@ function getCustInfo($number)
 
 	/* query for a customer name given the customer phone number */
 
-	//$queryString = "SELECT name FROM Customers WHERE phoneNo=:phone";
-
-	$queryString = "SELECT * FROM CUSTOMERS";
+	$queryString = "SELECT name FROM Customers WHERE phoneNo=:phone";
 
 	$query = oci_parse($conn,$queryString);
-	//oci_bind_by_name($query,':phone',$number);
+	oci_bind_by_name($query,':phone',$number);
 	$res = oci_execute($query);
 
 	if(!$res) {
@@ -35,17 +33,12 @@ function getCustInfo($number)
 		exit();
 	}
 
-	$row= oci_fetch_array($query,OCI_BOTH);
-	$name = $row[0];
-	echo "1, " . $row;
-	exit();
-
-	/*if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+	if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 		$name = $row[0];
 	} else {
 		echo "1, Invalid Customer Phone Number Provided " . $number;
 		exit();
-	}*/
+	}
 
 	/* query for all the information in the customer bill */
 	
