@@ -67,7 +67,7 @@
 		  	if(result == 0) {
 		  		updateCustomerInfo(model,data);
 		  	} else {
-		  		alert(Data)
+		  		alert(data)
 		  	}
 	    }
 
