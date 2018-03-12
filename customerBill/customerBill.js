@@ -49,19 +49,19 @@
 		fieldUpdate();
 
 		/* update the model with a given array of data */
-		function updateCustomerInfo(data) {
-			model['customer_name'] = data[0];
-			model['customer_phone'] = data[1];
+		function updateCustomerInfo(m,data) {
+			m['customer_name'] = data[0];
+			m['customer_phone'] = data[1];
 			var matrix = [];
 			for(var i = 2; i <= 5; i++) {
 				matrix.push(data[i].split("|"))
 			}
-			model['items'] = [];
+			m['items'] = [];
 			for(var i = 0; i < matrix[0].length; i++) {
 				var model = matrix[1][i] + " (" + matrix[0][i] + ")";
 				var description = matrix[2][i];
 				var date = matrix[3][i];
-				model['items'].push([model,description,date]);
+				m['items'].push([model,description,date]);
 			}
 			fieldUpdate();
 		};
@@ -80,9 +80,8 @@
 			var data = {
 				"number" : phone
 			}
-			console.log(model)
 		    //scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
-		    updateCustomerInfo("Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34")
+		    updateCustomerInfo(model,"Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34")
 		}
 
 		test("408-663-7143");
