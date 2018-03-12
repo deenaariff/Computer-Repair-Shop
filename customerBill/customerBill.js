@@ -11,9 +11,6 @@
 		"total" : 0
 	}
 
-	var test_items = [["Sample Repair 1",0],["Sample Repair 2",0]];
-	model["items"] = test_items;
-
 	/* Helper function to generate html for customer info */
 	var getCustInfo = function () {
 			return "Name: " + model['customer_name']+
@@ -23,10 +20,11 @@
 	}
 
 	/* Helper function to generate html for a table row of data*/
-	var createRow = function (data1,data2,classr) {
+	var createRow = function (model,description,date,classr) {
 		return "<tr class='row_entry "+classr+"'>" +
-               "<td>" + data1 + "</td>" +
-               "<td>$" + data2 + "</td>" +
+               "<td>" + model + "</td>" +
+               "<td>" + description + "</td>" +
+               "<td>" + date + "</td>" +
                "</tr>"
 	}
 
@@ -34,15 +32,14 @@
 
 		/* Update all the fields in the html based on new data in the model */
 		function fieldUpdate() {
-			$("#s_contract").html("Service Contract Id #: " + model['service_contract_id']);
 			$("#cust_info").html(getCustInfo());
 			$('.row_entry').remove()
-			$('#billTable').append(createRow("Description","Price","heading"));
+			$('#billTable').append(createRow("Description","Price","Date","heading"));
 			var items = model['items']
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
 				var row = items[i];
-				$('#billTable').append(createRow(row[0],row[1],"title"));
+				$('#billTable').append(createRow(row[0],row[1],row[2],"title"));
 				sum += row[1];
 			}
 			$('#billTable').append(createRow("",sum,"total"));
@@ -55,9 +52,17 @@
 		function updateCustomerInfo(data) {
 			model['customer_name'] = data[0];
 			model['customer_phone'] = data[1];
-			model['service_contract_id'] = data[2];
-			model['model'] = data[3];
-			model['time'] = data[4];
+			var matrix = [];
+			for(var i = 2; i <= 5; i++) {
+				matrix.push(data[i].split("|"))
+			}
+			model['items'] = [];
+			for(var i = 0; i < matrix[0].length; i++) {
+				var model = matrix[1][i] + " (" + matrix[0][i] + ")";
+				var description = matrix[2][i];
+				var date = matrix[3][i];
+				model['items'].push([model,description,date]);
+			}
 			fieldUpdate();
 		};
 
