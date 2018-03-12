@@ -30,8 +30,6 @@
 
 	$(document).ready(function(){
 
-		console.log(model)
-
 		/* Update all the fields in the html based on new data in the model */
 		function fieldUpdate() {
 			$("#cust_info").html(getCustInfo());
@@ -82,6 +80,7 @@
 			var data = {
 				"number" : phone
 			}
+			console.log(model)
 		    //scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
 		    updateCustomerInfo("Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34")
 		}
