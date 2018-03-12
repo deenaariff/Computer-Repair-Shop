@@ -50,6 +50,8 @@
 
 		/* update the model with a given array of data */
 		function updateCustomerInfo(m,data) {
+			console.log(m);
+			console.log(data[0])
 			m['customer_name'] = data[0];
 			m['customer_phone'] = data[1];
 			var matrix = [];
@@ -81,7 +83,7 @@
 				"number" : phone
 			}
 		    //scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
-		    updateCustomerInfo(model,"Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34")
+		    updateCustomerInfo(model,["Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34"])
 		}
 
 		test("408-663-7143");
