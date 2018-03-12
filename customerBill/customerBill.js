@@ -75,17 +75,12 @@
 		  	}
 	    }
 
-	    var test_callback = function(result,data) {
-	    	console.log(result);
-	    	console.log(data);
-	    }
-
 	    /* call the php file and obtain results */
 		function test (phone) {
 			var data = {
 				"number" : phone
 			}
-		    scope.fetchPHPdata(data, "getCustomerInfo.php", test_callback);
+		    scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
 		}
 
 		test("408-663-7143");
