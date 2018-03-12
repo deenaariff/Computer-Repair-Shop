@@ -79,7 +79,7 @@
 		    scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
 		}
 
-		$("#getBillBtn").button().click(function(){
+		$("#getBillBtn").click(function(){
 			var number = $('#input').val();
 			console.log(number);
         	getData(number);
