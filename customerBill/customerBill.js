@@ -4,6 +4,7 @@
 	var model = {
 		"customer_name" : "xxxxxx",
 		"customer_phone" : "xxx-xxx-xxxx",
+		"total" : 0,
 		"items" : []
 	}
 
@@ -11,7 +12,7 @@
 	var getCustInfo = function () {
 		return "Customer Name: " + model['customer_name']+
 			   "<br>"+"Phone #: " + model['customer_phone'] +
-			   "<br>"+"Total Price: $" + model['model'] 	
+			   "<br>"+"Total Price: $" + model['total'] 	
 	}
 
 	/* Helper function to generate html for a table row of data*/
