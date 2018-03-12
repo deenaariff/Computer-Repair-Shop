@@ -98,7 +98,28 @@ function getCustInfo($number)
 	$description_str = implode("|",$descriptions);
 	$dates_str = implode("|",$dates);
 
-	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str);
+	$total = 0;
+
+	$queryString = "SELECT name FROM CustomerBill WHERE custPhone=:phone";
+
+	$query = oci_parse($conn,$queryString);
+	oci_bind_by_name($query,':phone',$number);
+	$res = oci_execute($query);
+
+	if(!$res) {
+		echo "1, Error in Database Query";
+		exit();
+	}
+
+	if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+		$total = $row[0];
+	} else {
+		echo "1, Customer is Not Billed for this number: " . $number;
+		exit();
+	}
+
+	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $total);
+
 	$str = implode (",", $arr);
     echo "0," . $str;
 }

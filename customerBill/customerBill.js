@@ -60,6 +60,7 @@
 				var date = matrix[3][i];
 				m['items'].push([model,description,date]);
 			}
+			m['total'] = data[6];
 			fieldUpdate();
 		};
 
