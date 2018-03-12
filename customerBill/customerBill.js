@@ -80,7 +80,8 @@
 			var data = {
 				"number" : phone
 			}
-		    scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
+		    //scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
+		    updateCustomerInfo("Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34")
 		}
 
 		test("408-663-7143");
