@@ -34,7 +34,7 @@
 		function fieldUpdate() {
 			$("#cust_info").html(getCustInfo());
 			$('.row_entry').remove()
-			$('#billTable').append(createRow("Description","Price","Date","heading"));
+			$('#billTable').append(createRow("Description","Descriptions","Date","heading"));
 			var items = model['items']
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
@@ -42,7 +42,6 @@
 				$('#billTable').append(createRow(row[0],row[1],row[2],"title"));
 				sum += row[1];
 			}
-			$('#billTable').append(createRow("",sum,"total"));
 		}
 
 		/* upate with initial default model */
@@ -71,7 +70,7 @@
 		/* callback to handle call to PHP file */
 		var callback = function(result,data) {
 		  	if(result == 0) {
-		  		updateCustomerInfo(data);
+		  		updateCustomerInfo(model,data);
 		  	} else {
 		  		alert("An Error Occured. " + data)
 		  	}
@@ -82,8 +81,7 @@
 			var data = {
 				"number" : phone
 			}
-		    //scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
-		    updateCustomerInfo(model,["Deen Aariff","408-663-7143","S01","Samsung","description","53-34-34"])
+		    scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
 		}
 
 		test("408-663-7143");
