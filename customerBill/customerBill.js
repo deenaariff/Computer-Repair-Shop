@@ -4,19 +4,15 @@
 	var model = {
 		"customer_name" : "xxxxxx",
 		"customer_phone" : "xxx-xxx-xxxx",
-		"service_contract_id" : "xxxxxx",
-		"model" : "xxxxxxx",
-		"time" : (new Date()).toString(),
-		"items" : [],
-		"total" : 0
+		"items" : []
 	}
 
 	/* Helper function to generate html for customer info */
 	var getCustInfo = function () {
-			return "Name: " + model['customer_name']+
-				   "<br>"+"Phone #: " + model['customer_phone'] +
-				   "<br>"+"Total Price: " + model['model'] 	
-			}
+		return "Customer Name: " + model['customer_name']+
+			   "<br>"+"Phone #: " + model['customer_phone'] +
+			   "<br>"+"Total Price: $" + model['model'] 	
+	}
 
 	/* Helper function to generate html for a table row of data*/
 	var createRow = function (model,description,date,classr) {
@@ -49,7 +45,7 @@
 		/* update the model with a given array of data */
 		function updateCustomerInfo(m,data) {
 			console.log(m);
-			console.log(data[0])
+			console.log(data[0]);
 			m['customer_name'] = data[0];
 			m['customer_phone'] = data[1];
 			var matrix = [];
@@ -71,19 +67,23 @@
 		  	if(result == 0) {
 		  		updateCustomerInfo(model,data);
 		  	} else {
-		  		alert("An Error Occured. " + data)
+		  		alert(Data)
 		  	}
 	    }
 
 	    /* call the php file and obtain results */
-		function test (phone) {
+		function getData (phone) {
 			var data = {
 				"number" : phone
 			}
 		    scope.fetchPHPdata(data, "getCustomerInfo.php", callback);
 		}
 
-		test("408-663-7143");
+		$("#getBillBtn").button().click(function(){
+			var number = $('#input').val();
+			console.log(number);
+        	getData(number);
+    	}); 
 	});
 
 
