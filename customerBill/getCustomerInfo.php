@@ -100,14 +100,14 @@ function getCustInfo($number)
 
 	$total = 0;
 
-	$queryString = "SELECT name FROM CustomerBill WHERE custPhone=:phone";
+	$queryString = "SELECT total FROM CustomerBill WHERE custPhone=:phone";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':phone',$number);
 	$res = oci_execute($query);
 
 	if(!$res) {
-		echo "1, Error in Database Query";
+		echo "1, Error in Database Query for customer total in Customer Bill";
 		exit();
 	}
 
