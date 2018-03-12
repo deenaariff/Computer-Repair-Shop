@@ -15,9 +15,8 @@
 	var getCustInfo = function () {
 			return "Name: " + model['customer_name']+
 				   "<br>"+"Phone #: " + model['customer_phone'] +
-				   "<br>"+"Model Repaired: " + model['model'] +
-				   "<br>"+"Time Arrived: " + model['time']
-	}
+				   "<br>"+"Total Price: " + model['model'] 	
+			}
 
 	/* Helper function to generate html for a table row of data*/
 	var createRow = function (model,description,date,classr) {
@@ -34,7 +33,7 @@
 		function fieldUpdate() {
 			$("#cust_info").html(getCustInfo());
 			$('.row_entry').remove()
-			$('#billTable').append(createRow("Description","Descriptions","Date","heading"));
+			$('#billTable').append(createRow("Model (Service Contract Id)","Description","Date","heading"));
 			var items = model['items']
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
