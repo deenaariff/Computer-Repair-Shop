@@ -30,6 +30,8 @@
 
 	$(document).ready(function(){
 
+		console.log(model)
+
 		/* Update all the fields in the html based on new data in the model */
 		function fieldUpdate() {
 			$("#cust_info").html(getCustInfo());
