@@ -15,6 +15,7 @@ function acceptMachine($name, $model, $number)
 {
 
 	echo "1, Test";
+	exit();
 
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
