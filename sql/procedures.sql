@@ -13,7 +13,7 @@ END;
 Show errors;
 
 --Accept a new machine
-Create or Replace Procedure acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)
+Create or Replace Function acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)
 AS
 
 l_contract ServiceContract%rowtype;
@@ -21,6 +21,8 @@ l_phone Customers.phoneNo%type;
 l_price RepairItem.price%type;
 l_year RepairItem.year%type;
 l_date DATE := to_date(in_date, 'DD-MM-YY');
+
+RETURN VARCHAR2 IS
 
 BEGIN
 
@@ -51,18 +53,19 @@ BEGIN
 				Insert into RepairItem values(n_item, model, l_price, l_year, l_contract.contractType, 'PRINTER');
 				Insert into RepairJob values(n_item, l_contract.contractId, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YY'), 'UNDER_REPAIR');
 			ELSE
-				DBMS_OUTPUT.put_line('Error: Only one item allowed for Single contracts');
+				return '1,Only one item allowed for Single contracts';
 				Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
 				Insert into RepairJob values(n_item, NULL, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YY'), 'UNDER_REPAIR');
 			END IF;
 		END IF;
 	ELSE
-		DBMS_OUTPUT.put_line('Contract not valid');
-     		Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
+		return '1, Contract not valid';
+     	Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
 		Insert into RepairJob values(n_item, NULL, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YY'), 'UNDER_REPAIR');
 	END IF;
 	
 	Insert into CustomerBill values(l_phone, l_date, NULL, NULL, NULL);
+	return '0, Inserted into Record'
 	commit;
 END;
 /
