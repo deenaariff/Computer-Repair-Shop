@@ -17,7 +17,7 @@ function acceptMachine($name, $model, $number)
 	/*acceptMachine(n_name in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)*/
 	$queryString = "exec acceptMachine(:name,:model,:cid,:date)";
 
-	$date = "2015-12-11"
+	$date = "2015-12-11";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':name',$nams);
