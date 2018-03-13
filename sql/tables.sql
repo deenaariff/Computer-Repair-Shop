@@ -93,3 +93,5 @@ Create Table CustomerBill (
 	Foreign key (custPhone) references Customers(phoneNo),
 	Primary key(custPhone, timeOfArrival)
 );	
+
+commit;
