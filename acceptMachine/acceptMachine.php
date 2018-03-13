@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_GET['name']) || !isset($_GET['model']) || !isset($_GET['service_contract'])) {
+if(!isset($_GET['name']) || !isset($_GET['model']) || !isset($_GET['phone_number'])) {
 	echo "1, Some Input Field Are Empty";
 	exit();
 }
