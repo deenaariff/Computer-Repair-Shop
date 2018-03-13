@@ -2,6 +2,7 @@
 --procedures.sql
 --Group: Deen and Maggie
 
+--Add a new customer
 Create or Replace Procedure newCustomer(n_name in VARCHAR, n_phone in VARCHAR)
 AS
 BEGIN
@@ -11,6 +12,7 @@ END;
 /
 Show errors;
 
+--Accept a new machine
 Create or Replace Procedure acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)
 AS
 
@@ -66,6 +68,7 @@ END;
 /
 Show errors;
 
+--Update a machine's repair status
 Create or Replace Procedure updateMachineStatus(item in VARCHAR, n_status in VARCHAR)
 AS
 BEGIN
@@ -78,6 +81,7 @@ END;
 /
 Show errors;
 
+--Retrieve a machine's repair status
 Create or Replace Function getMachineStatus(item in VARCHAR, phone in VARCHAR) return VARCHAR
 AS
 
@@ -93,6 +97,7 @@ END;
 /
 Show errors;
 
+--Update the problem description for a machine
 Create or Replace Procedure updateProblemDescrip(descrip in VARCHAR, phone in VARCHAR, time in DATE)
 AS
 BEGIN
@@ -103,6 +108,7 @@ END;
 /
 Show errors;
 
+--Get the total revenue generated
 Create or Replace Function getRevenueGenerated(s_date in DATE, e_date in DATE) return NUMBER
 AS
 Cursor Bill_cur is
@@ -132,6 +138,7 @@ END;
 /
 Show errors;
 
+--Get the total revenue generated from machines with no warranty
 Create or Replace Function getRevenueNoWarranty(s_date in DATE, e_date in DATE) return NUMBER
 AS
 
@@ -162,6 +169,7 @@ END;
 /
 Show errors;
 
+--Get the total revenue from machines covered by warranty
 Create or Replace Function getRevenueWarranty(s_date in DATE, e_date in DATE) return NUMBER
 AS
 Cursor Bill_cur is
