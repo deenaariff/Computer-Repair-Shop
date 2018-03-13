@@ -12,7 +12,7 @@ INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE
 declare
 	msg  NVARCHAR2 (20) := '';
 begin
-	exec acceptMachine('Deen','002','Samsung','408-663-7143','2015-12-11',msg);
+	acceptMachine('Deen','002','Samsung','408-663-7143','2015-12-11',msg);
 end;
 /
 
