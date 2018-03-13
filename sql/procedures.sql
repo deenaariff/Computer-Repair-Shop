@@ -51,19 +51,19 @@ BEGIN
 				Insert into RepairItem values(n_item, model, l_price, l_year, l_contract.contractType, 'PRINTER');
 				Insert into RepairJob values(n_item, l_contract.contractId, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YY'), 'UNDER_REPAIR');
 			ELSE
-				message =  '1,Only one item allowed for Single contracts';
+				message :=  '1,Only one item allowed for Single contracts';
 				Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
 				Insert into RepairJob values(n_item, NULL, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YY'), 'UNDER_REPAIR');
 			END IF;
 		END IF;
 	ELSE
-		message = '1, Contract not valid';
+		message := '1, Contract not valid';
      	Insert into RepairItem values(n_item, model, l_price, l_year, 'NONE', 'COMPUTER');
 		Insert into RepairJob values(n_item, NULL, l_phone, NULL, to_date(SYSDATE, 'DD-MM-YY'), 'UNDER_REPAIR');
 	END IF;
 	
 	Insert into CustomerBill values(l_phone, l_date, NULL, NULL, NULL);
-	message = '0, Inserted into Record';
+	message := '0, Inserted into Record';
 	commit;
 END;
 /
