@@ -13,6 +13,11 @@ acceptMachine($arg1, $arg2, $arg3);
 
 function acceptMachine($name, $model, $number)
 {
+	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
+	if(!$conn) {
+		echo "1, Error Connecting To Database";
+		exit();
+	}
 
 	/*acceptMachine(n_name in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)*/
 	$queryString = "exec acceptMachine(:name,:model,:cid,:date)";
