@@ -20,15 +20,17 @@ function acceptMachine($name, $model, $number)
 	}
 
 	/*acceptMachine(n_name in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)*/
-	$queryString = "exec acceptMachine(:name,:model,:cid,:date)";
+	$queryString = "exec acceptMachine(:name,:model,:cid,:date,:message)";
 
 	$date = "2015-12-11";
+	$message = "";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':name',$nams);
 	oci_bind_by_name($query,':model',$model);
 	oci_bind_by_name($query,':cid',$number);
 	oci_bind_by_name($query,':date',$date);
+	oci_bind_by_name($query,':message',$message);
 
 	$res = oci_execute($query);
 
@@ -37,10 +39,10 @@ function acceptMachine($name, $model, $number)
 		exit();
 	}
 
-	$arr = array ( 0 => $name, 1 => $model, 2 => $s_contract);
+	//$arr = array ( 0 => $name, 1 => $model, 2 => $s_contract);
 
-	$str = implode (",", $arr);
-    echo "0," . $str;
+	//$str = implode (",", $arr);
+    echo "0," . $message;
 }
 
 ?>
