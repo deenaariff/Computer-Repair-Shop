@@ -1,7 +1,4 @@
 --- Tests for Customer Bill
-start tables;
-start procedures;
-
 INSERT INTO Customers VALUES ('408-663-7143','Deen Aarif');
 INSERT INTO CustomerBill VALUES ('408-663-7143',DATE '2015-12-17',20.00,40.00,5);
 INSERT INTO RepairItem VALUES ('001','Samsung',40.00,2017,'SINGLE','COMPUTER');
