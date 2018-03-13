@@ -9,6 +9,8 @@ INSERT INTO ServiceContract VALUES('S01',DATE '2015-12-10',DATE '2015-12-17','40
 INSERT INTO RepairPerson VALUES('e01','john smith','408-666-6666');
 INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE '2015-12-10',DATE '2015-12-17','DONE');
 
-EXECUTE acceptMachine('d','s','408-663-7143','','');
+
+/*acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)*/
+EXECUTE acceptMachine('Deen','002','Samsung','408-663-7143','2015-12-11',' ');
 
 commit;
