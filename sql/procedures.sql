@@ -13,7 +13,7 @@ END;
 Show errors;
 
 --Accept a new machine
-Create or Replace Procedure acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message IN OUT VARCHAR2)
+Create or Replace Procedure acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)
 AS
 
 l_contract ServiceContract%rowtype;
