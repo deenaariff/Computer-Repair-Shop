@@ -7,7 +7,7 @@ if(!isset($_GET['name']) || !isset($_GET['model']) || !isset($_GET['service_cont
 
 $arg1 = $_GET['name'];
 $arg2 = $_GET['model'];
-$arg3 = $_GET['phone_number']
+$arg3 = $_GET['phone_number'];
 
 acceptMachine($arg1, $arg2, $arg3);
 
