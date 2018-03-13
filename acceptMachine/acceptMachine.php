@@ -13,6 +13,9 @@ acceptMachine($arg1, $arg2, $arg3);
 
 function acceptMachine($name, $model, $number)
 {
+
+	echo "1, Test";
+
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
 		echo "1, Error Connecting To Database";
