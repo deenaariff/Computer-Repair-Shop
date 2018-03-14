@@ -38,6 +38,7 @@
 
 		  // call function from dbTransactions.js
 		  if(data['status'] != "") {
+		  	console.log("this path");
 		  	scope.fetchPHPdata(data, "updateMachineStatus.php", callback);
 		  } else {
 		  	scope.fetchPHPdata(data, "showMachineStatus.php", show_callback);
