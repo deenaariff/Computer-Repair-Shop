@@ -205,12 +205,9 @@ l_log Log_cur%rowtype;
 l_revenue NUMBER(6,2) := 0.00;
 
 BEGIN
-		dbms_output.put_line('Break1');
         for l_log in Log_cur
         loop
-        		dbms_output.put_line('Break2');
                 IF l_log.timeOfArrival >= s_date AND l_log.doneDate <= e_date THEN
-                		dbms_output.put_line('Break3');
                         For l_bill in Bill_cur
                         loop
                                 IF l_bill.custPhone = l_log.custPhone AND l_bill.timeOfArrival = l_log.timeOfArrival AND l_bill.itemId = l_log.itemId THEN
