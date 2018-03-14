@@ -24,7 +24,7 @@ function getRevenue($date1, $date2)
 
 	//$queryString = 'begin\ :res := getRevenueGenerated(DATE :date1, DATE :date2);\ endl;';
 
-	$queryString = 'begin :res := getRevenueGenerated(DATE :date1,DATE :date2); end;';
+	$queryString = "begin :res := getRevenueGenerated(DATE ':date1',DATE ':date2'); end;";
 	
 	$query = oci_parse($conn,$queryString);
 
