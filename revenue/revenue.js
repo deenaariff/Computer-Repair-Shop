@@ -5,19 +5,6 @@
 
 	$(document).ready(function(){
 
-		 var callback = function(result,message) {
-		  	if(result == 0) {
-		  		alert("New Machine '" + model + "' was Accepted");
-		  	} else {
-		  		alert("An Error Occured. " + message)
-		  	}
-		  }
-
-		var data = {
-			"date1": "2015-12-08",
-			"date2": "2015-12-17"
-		}
-
 		scope.fetchPHPdata(data, "revenue.php", callback);
 
 		$('.submit_button').click(function(e) {	
@@ -46,6 +33,14 @@
 		  if(missing == true) {
 		  	alert(message)
 		  	return;
+		  }
+
+		  var callback = function(result,message) {
+		  	if(result == 0) {
+		  		alert("Revenue Generated: " + message);
+		  	} else {
+		  		alert("An Error Occured. " + message)
+		  	}
 		  }
 
 		  // call function from dbTransactions.js
