@@ -20,7 +20,7 @@ declare
 	output number := 0;
 begin
 	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
-	dbms_output.put_line(output);
+	dbms_output.put_line('Result : ' || output);
 end;
 /
 
