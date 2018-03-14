@@ -22,7 +22,7 @@ function showMachineStatus($machine_id, $number)
 		exit();
 	}
 
-	$queryString = "BEGIN :res = getMachineStatus(:id,:number); END;";
+	$queryString = "BEGIN :res := getMachineStatus(:id,:number); END;";
 	
 	$query = oci_parse($conn,$queryString);
 
