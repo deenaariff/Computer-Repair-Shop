@@ -44,7 +44,7 @@ function showMachineStatus($machine_id, $number)
 	if(!$res) {
 		echo "1, Error in Database Query";
 		exit();
-	}*/
+	}
 
     echo "0," . $str;
 }
