@@ -34,6 +34,8 @@
 		  	}
 		  }
 
+		  console.log(data);
+
 		  // call function from dbTransactions.js
 		  if(data['status'] == "") {
 		  	scope.fetchPHPdata(data, "updateMachineStatus.php", callback);
