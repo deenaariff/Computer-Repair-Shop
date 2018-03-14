@@ -12,7 +12,6 @@ if(!isset($_GET['m_id']) && !isset($_GET['phone'])) {
 $arg1 = $_GET['m_id'];
 $arg2 = $_GET['phone'];
 
-echo "1,break1";
 showMachineStatus($arg1, $arg2);
 
 function showMachineStatus($machine_id, $number)
@@ -26,8 +25,6 @@ function showMachineStatus($machine_id, $number)
 	$subquery = "";
 	$str = "";
 	$queryString = 'BEGIN :res := getMachineStatus(:id,:number); END;';
-
-	echo "1, Break2";
 	
 	$query = oci_parse($conn,$queryString);
 
@@ -35,11 +32,7 @@ function showMachineStatus($machine_id, $number)
 	oci_bind_by_name($query,':id', $machine_id);
 	oci_bind_by_name($query,':number',$number);
 
-	echo "1, Break3";
-
 	$res = oci_execute($query);
-
-	echo "1, Break4";
 
 	if(!$res) {
 		echo "1, Error in Database Query";
