@@ -22,7 +22,7 @@ function getRevenue($date1, $date2)
 		exit();
 	}
 
-	echo "1, " . $date1 . $date2
+	echo "1, " . $date1 . $date2;
 
 	$queryString = "BEGIN :res := getRevenueGenerated(DATE :date1, DATE :date2); END;";
 	
