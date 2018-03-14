@@ -123,7 +123,7 @@ l_status RepairJob.status%type;
 
 BEGIN
 	Select status into l_status
-	From RepairJob
+	From RepairJob NATURAL JOIN RepairLog
 	Where itemId = item or custPhone = phone;
 
 	return l_status;
