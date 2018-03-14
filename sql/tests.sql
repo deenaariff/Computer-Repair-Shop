@@ -38,7 +38,7 @@ end;
 declare
 	output number := 0;
 begin
-	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-16');
+	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
 	dbms_output.put_line('getRevenueGenerated() : ' || output);
 end;
 /
@@ -48,7 +48,7 @@ end;
 declare
 	output number := 0;
 begin
-	output := getRevenueNoWarranty(DATE '2015-12-8', DATE '2015-12-16');
+	output := getRevenueNoWarranty(DATE '2015-12-8', DATE '2015-12-17');
 	dbms_output.put_line('getRevenueNoWarranty() : ' || output);
 end;
 /
@@ -58,7 +58,7 @@ end;
 declare
 	output number := 0;
 begin
-	output := getRevenueWarranty(DATE '2015-12-8', DATE '2015-12-16');
+	output := getRevenueWarranty(DATE '2015-12-8', DATE '2015-12-17');
 	dbms_output.put_line('getRevenueNoWarranty() : ' || output);
 end;
 /
