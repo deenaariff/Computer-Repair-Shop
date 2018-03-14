@@ -15,8 +15,6 @@
 		  missing = false;
 		  message = "";
 
-		  model = "";
-
 		  var data = $('.revenueForm').serializeArray().reduce(function(obj, item) {
 		  	if (item.value == "") {
 		  		message += "[FIELD]: " + item.name + " is missing. "

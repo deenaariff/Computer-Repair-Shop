@@ -11,10 +11,11 @@ if(!isset($_GET['date1']) || !isset($_GET['date2'])) {
 
 $arg1 = $_GET['date1'];
 $arg2 = $_GET['date2'];
+$arg3 = $_GET['case'];
 
 getRevenue($arg1, $arg2);
 
-function getRevenue($date1, $date2)
+function getRevenue($date1, $date2, $warranty)
 {
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
@@ -27,7 +28,23 @@ function getRevenue($date1, $date2)
 	$date_string1 = "DATE '" . $date1 . "'";
 	$date_string2 = "DATE '" . $date2 . "'";
 
-	$queryString = "begin :res := getRevenueGenerated("; 
+	$function = "";
+
+	switch ($case) {
+	    case '1':
+	        $function = "getRevenueGenerated";
+	        break;
+	    case '2':
+	         $function = "getRevenueNoWarranty";
+	        break;
+	    case '3':
+	        $function = "getRevenueWarranty";
+	        break;
+	    default:
+	        $function = "getRevenueGenerated";
+	}
+
+	$queryString = "begin :res :=" . $function . "("; 
 	$queryString = $queryString	. $date_string1 . ",";
 	$queryString = $queryString . $date_string2 . "); end;";
 	
