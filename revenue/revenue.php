@@ -30,8 +30,6 @@ function getRevenue($date1, $date2)
 	$queryString = "begin :res := getRevenueGenerated("; 
 	$queryString = $queryString	. $date_string1 . ",";
 	$queryString = $queryString . $date_string2 . "); end;";
-
-	echo $queryString . "test";
 	
 	$query = oci_parse($conn,$queryString);
 
