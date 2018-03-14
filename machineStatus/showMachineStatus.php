@@ -23,9 +23,13 @@ function showMachineStatus($machine_id, $number)
 		exit();
 	}
 
+	echo "1, Break1";
+
 	$subquery = "";
 	$str = "";
 	$queryString = 'BEGIN :res := getMachineStatus(:id,:number); END;';
+
+	echo "1, Break2";
 	
 	$query = oci_parse($conn,$queryString);
 
@@ -33,7 +37,11 @@ function showMachineStatus($machine_id, $number)
 	oci_bind_by_name($query,':id', $machine_id);
 	oci_bind_by_name($query,':number',$number);
 
+	echo "1, Break3";
+
 	$res = oci_execute($query);
+
+	echo "1, Break4";
 
 	if(!$res) {
 		echo "1, Error in Database Query";
