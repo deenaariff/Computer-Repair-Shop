@@ -5,8 +5,6 @@
 
 	$(document).ready(function(){
 
-		scope.fetchPHPdata(data, "revenue.php", callback);
-
 		$('.submit_button').click(function(e) {	
 
 		  e.preventDefault()  
