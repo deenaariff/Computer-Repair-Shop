@@ -24,11 +24,11 @@ function showMachineStatus($machine_id, $number)
 
 	$subquery = "";
 	$str = "";
-	$queryString = 'BEGIN getMachineStatus(:id,:number); END;';
+	$queryString = 'BEGIN :res = getMachineStatus(:id,:number); END;';
 	
 	$query = oci_parse($conn,$queryString);
 
-	//oci_bind_by_name($query,':res', $str);
+	oci_bind_by_name($query,':res', $str);
 	oci_bind_by_name($query,':id', $machine_id);
 	oci_bind_by_name($query,':number',$number);
 
