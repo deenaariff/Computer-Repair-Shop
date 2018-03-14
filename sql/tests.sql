@@ -16,8 +16,12 @@ INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE
 --end;
 --/
 
--- should output 40.00
--- currently outputing 0.00
+-- should output 'DONE'
+-- currently getting error
+-- ERROR at line 1:
+-- ORA-01403: no data found
+-- ORA-06512: at "MCAI.GETMACHINESTATUS", line 7
+-- OA-06512: at line 4
 declare
 	output VARCHAR(22) := '';
 begin
@@ -56,7 +60,6 @@ begin
 	dbms_output.put_line('getRevenueNoWarranty() : ' || output);
 end;
 /
-
 
 
 commit;

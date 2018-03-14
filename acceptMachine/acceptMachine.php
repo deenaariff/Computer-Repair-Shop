@@ -20,14 +20,17 @@ function acceptMachine($name, $model, $number)
 		exit();
 	}
 
-	/*acceptMachine(n_name in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE)*/
-	$queryString = 'BEGIN acceptMachine(:name,:model,:cid,:date,:message); END;';
+	$machine_id = '002';
+
+	/*acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)*/
+	$queryString = 'BEGIN acceptMachine(:name,:m_id,:model,:cid,:date,:message); END;/';
 
 	$date = "2015-12-11";
 	$message = "";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':name',$nams);
+	oci_bind_by_name($query,':m_id',$machine_id);
 	oci_bind_by_name($query,':model',$model);
 	oci_bind_by_name($query,':cid',$number);
 	oci_bind_by_name($query,':date',$date);
@@ -39,8 +42,6 @@ function acceptMachine($name, $model, $number)
 		echo "1, Error in Database Query";
 		exit();
 	}
-
-	//$arr = array ( 0 => $name, 1 => $model, 2 => $s_contract);
 
 	//$str = implode (",", $arr);
     echo "0," . $message;
