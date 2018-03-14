@@ -9,17 +9,18 @@ INSERT INTO RepairPerson VALUES('e01','john smith','408-666-6666');
 INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE '2015-12-10',DATE '2015-12-17','DONE');
 
 
-declare
-	msg  VARCHAR2(20) := '';
-begin
-	acceptMachine('Deen Aarif','408-663-7143','002','Samsung',DATE '2015-12-11',msg);
-end;
-/
+--declare
+--	msg  VARCHAR2(20) := '';
+--begin
+--	acceptMachine('Deen Aarif','408-663-7143','002','Samsung',DATE '2015-12-11',msg);
+--end;
+--/
 
 declare
 	output number := 0;
 begin
 	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
+	dbms_output.put_line(output);
 end;
 /
 
