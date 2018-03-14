@@ -13,9 +13,9 @@ $arg1 = $_GET['date1'];
 $arg2 = $_GET['date2'];
 $arg3 = $_GET['case'];
 
-getRevenue($arg1, $arg2);
+getRevenue($arg1, $arg2, $arg3);
 
-function getRevenue($date1, $date2, $case)
+function getRevenue($date1, $date2, $warranty)
 {
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
@@ -30,7 +30,7 @@ function getRevenue($date1, $date2, $case)
 
 	$function = "";
 
-	switch ($case) {
+	switch ($warranty) {
 	    case '1':
 	        $function = "getRevenueGenerated";
 	        break;
