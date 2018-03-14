@@ -208,6 +208,7 @@ BEGIN
         for l_log in Log_cur
         loop
                 IF l_log.timeOfArrival >= s_date AND l_log.doneDate <= e_date THEN
+                		dbms_output.put_line('Flag!');
                         For l_bill in Bill_cur
                         loop
                                 IF l_bill.custPhone = l_log.custPhone AND l_bill.timeOfArrival = l_log.timeOfArrival AND l_bill.itemId = l_log.itemId THEN
