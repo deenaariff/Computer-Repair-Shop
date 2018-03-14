@@ -19,7 +19,7 @@ INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE
 -- should output 40.00
 -- currently outputing 0.00
 declare
-	output VARCHAR(22);
+	output VARCHAR(22) = '';
 begin
 	output := getMachineStatus('001', '408-663-7143');
 	dbms_output.put_line('getMachineStatus() : ' || output);
