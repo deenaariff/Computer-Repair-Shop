@@ -1,4 +1,6 @@
 --- Tests for Customer Bill
+start tables;
+
 INSERT INTO Customers VALUES ('408-663-7143','Deen Aarif');
 INSERT INTO RepairItem VALUES ('001','Samsung',40.00,2017,'SINGLE','COMPUTER');
 INSERT INTO CustomerBill VALUES ('001','408-663-7143',DATE '2015-12-17',20.00,40.00,5);
@@ -17,7 +19,7 @@ end;
 declare
 	output number := 0;
 begin
-	ouput := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
+	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
 end;
 /
 
