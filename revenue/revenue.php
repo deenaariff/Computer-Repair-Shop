@@ -24,13 +24,18 @@ function getRevenue($date1, $date2)
 
 	//$queryString = 'begin\ :res := getRevenueGenerated(DATE :date1, DATE :date2);\ endl;';
 
-	$queryString = "begin :res := getRevenueGenerated(DATE '2015-12-08',DATE '2015-12-17'); end;";
+	$date_string1 = "DATE '" . $date1 . "'";
+	$date_string2 = "DATE '" . $date2 . "'";
+
+	$queryString = "begin :res := getRevenueGenerated("; 
+	$queryString = $queryString	. $date_string1 . ",";
+	$queryString = $queryString . $date_string2 . "); end;";
+
+	echo $queryString . "test";
 	
 	$query = oci_parse($conn,$queryString);
 
 	oci_bind_by_name($query,':res', $str, 22, SQLT_CHR);
-	//oci_bind_by_name($query,':date1', $date1);
-	//oci_bind_by_name($query,':date2',$date2);
 
 	$res = oci_execute($query);
 
