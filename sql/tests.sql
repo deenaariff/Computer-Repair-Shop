@@ -14,6 +14,9 @@ begin
 end;
 /
 
-getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17')
+begin
+	getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
+end;
+/
 
 commit;
