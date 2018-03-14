@@ -97,3 +97,28 @@ NL-08014: Message 8014 not found; No message file for product=network, facility=
   ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
 User inputted base directory is invalid [48187] [/oracle/ora11g]
 
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
