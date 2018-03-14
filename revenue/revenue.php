@@ -22,11 +22,13 @@ function getRevenue($date1, $date2)
 		exit();
 	}
 
-	$queryString = 'begin :res := getRevenueGenerated(DATE :date1, DATE :date2); endl;';
+	//$queryString = 'begin\ :res := getRevenueGenerated(DATE :date1, DATE :date2);\ endl;';
+
+	$queryString = 'begin myproc(:date1, :date2); end;'
 	
 	$query = oci_parse($conn,$queryString);
 
-	oci_bind_by_name($query,':res', $str, 22, SQLT_CHR);
+	//oci_bind_by_name($query,':res', $str, 22, SQLT_CHR);
 	oci_bind_by_name($query,':date1', $date1);
 	oci_bind_by_name($query,':date2',$date2);
 
