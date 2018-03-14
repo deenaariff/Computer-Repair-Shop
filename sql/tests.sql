@@ -7,8 +7,6 @@ INSERT INTO RepairPerson VALUES('e01','john smith','408-666-6666');
 INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE '2015-12-10',DATE '2015-12-17','DONE');
 
 
---acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)*/
-
 declare
 	msg VARCHAR2(20);
 begin
@@ -16,6 +14,6 @@ begin
 end;
 /
 
-
+getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17')
 
 commit;

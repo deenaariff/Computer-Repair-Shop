@@ -12,6 +12,20 @@ END;
 /
 Show errors;
 
+
+-- Given the machine id or customer-phone or email address, should show a machine(s) status. 
+Create or Replace Function showMachineStatus(i_id in VARCHAR, c_phone in VARCHAR)
+	RETURN SYS_REFCURSOR
+AS
+  	my_cursor SYS_REFCURSOR;
+BEGIN
+	OPEN my_cursor FOR SELECT status FROM JOIN(RepairItem,RepairLOG)
+		WHERE item_id = i_id OR custPhone = c_phone;
+  	RETURN my_cursor;
+END;
+/
+Show Errors
+
 --Accept a new machine
 Create or Replace Procedure acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)
 AS
