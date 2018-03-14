@@ -15,7 +15,7 @@ $arg3 = $_GET['case'];
 
 getRevenue($arg1, $arg2);
 
-function getRevenue($date1, $date2, $warranty)
+function getRevenue($date1, $date2, $case)
 {
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
