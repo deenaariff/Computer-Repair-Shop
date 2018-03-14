@@ -52,12 +52,12 @@ Create Table RepairJob (
 	custPhone VARCHAR(14),
 	empNo VARCHAR(10),
 	timeOfArrival DATE,
-	status VARCHAR(11) Check (status in ('UNDER_REPAIR','READY','DONE')),
+	status VARCHAR(12) Check (status in ('UNDER_REPAIR','READY','DONE')),
 	Foreign key (itemId) references RepairItem(itemId),
 	Foreign key (contractId) references ServiceContract(contractId),
 	Foreign key (custPhone) references Customers(phoneNo),
 	Foreign key (empNo) references RepairPerson(employeeNo),
-	Primary key(custPhone, timeOfArrival)
+	Primary key(itemId, custPhone, timeOfArrival)
 );
 
 Create Table RepairLog (
@@ -73,7 +73,7 @@ Create Table RepairLog (
         Foreign key (contractId) references ServiceContract(contractId),
         Foreign key (custPhone) references Customers(phoneNo),
         Foreign key (empNo) references RepairPerson(employeeNo),
-	Primary key(custPhone, doneDate)
+	Primary key(itemId, custPhone, doneDate)
 );
 
 Create Table ProblemReport (
@@ -85,13 +85,15 @@ Create Table ProblemReport (
 );	
 
 Create Table CustomerBill (
+	itemId VARCHAR(10),
 	custPhone VARCHAR(14),
 	timeOfArrival DATE,
 	costOfParts NUMBER(5, 2),
 	total NUMBER(5, 2),
 	laborHours INTEGER,
+	Foreign key (itemId) references RepairItem(itemId),
 	Foreign key (custPhone) references Customers(phoneNo),
-	Primary key(custPhone, timeOfArrival)
+	Primary key(itemId, custPhone, timeOfArrival)
 );	
 
 commit;
