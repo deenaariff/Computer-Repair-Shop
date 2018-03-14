@@ -33,7 +33,7 @@ function getRevenue($date1, $date2)
 	$res = oci_execute($query);
 
 	if(!$res) {
-		echo "1, Error in Database Query ";
+		echo "1, Error in Database Query " . $date1;
 		exit();
 	}
 
