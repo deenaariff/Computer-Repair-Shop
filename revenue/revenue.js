@@ -2,6 +2,13 @@
 
 	console.log('revenue.js has been invoked')
 
+	var data = {
+		"date1": "2015-12-08",
+		"date2": "2015-12-17"
+	}
+
+	scope.fetchPHPdata(data, "revenue.php", callback);
+
 	$(document).ready(function(){
 
 		$('.submit_button').click(function(e) {	
