@@ -1,6 +1,6 @@
 (function(scope) {
 
-	console.log('acceptMachine.js has been invoked')
+	console.log('updateMachine.js has been invoked')
 
 	$(document).ready(function(){
 
