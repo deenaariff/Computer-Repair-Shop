@@ -12,7 +12,7 @@ if(!isset($_GET['m_id']) && !isset($_GET['phone'])) {
 $arg1 = $_GET['m_id'];
 $arg2 = $_GET['phone'];
 
-
+echo "1,break1";
 showMachineStatus($arg1, $arg2);
 
 function showMachineStatus($machine_id, $number)
