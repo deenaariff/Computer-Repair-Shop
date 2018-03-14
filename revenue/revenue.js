@@ -1,6 +1,6 @@
 (function(scope) {
 
-	console.log('acceptMachine.js has been invoked')
+	console.log('revenue.js has been invoked')
 
 	$(document).ready(function(){
 
@@ -9,7 +9,7 @@
 		  e.preventDefault()  
 
 		  // debug
-		  console.log("Accept Machine Submit button was clicked")
+		  console.log("Revenue Generate button was clicked")
 
 		  missing = false;
 		  message = "";
