@@ -4,24 +4,18 @@
 Given the machine id or customer-phone or email address, should show a machine(s) status. 
 */
 
-if(!isset($_GET['m_id']) && !isset($_GET['customer_phone'])) {
+if(!isset($_GET['m_id']) && !isset($_GET['phone'])) {
 	echo "1, Some Input Field Are Empty";
 	exit();
 }
 
-$arg1 = 'unset'
+$arg1 = $_GET['m_id'];
+$arg2 = $_GET['phone'];
 
-if(!isset($_GET['m_id'])) {
-	$arg1 = $_GET['m_id'];
-}
 
-if(!isset($_GET['customer_phone']) {
-	$arg2 = $_GET['customer_phone'];
-}
+showMachineStatus($arg1, $arg2);
 
-showMachineStatus($arg1,$arg2);
-
-function showMachineStatus($machine_id, $cust_phone)
+function showMachineStatus($machine_id, $number)
 {
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
@@ -30,20 +24,15 @@ function showMachineStatus($machine_id, $cust_phone)
 	}
 
 	$subquery = "";
-
-	/* query for a customer name given the customer phone number */
-	if($machine_id != 'unset') {
-		$queryString = "SELECT name FROM JOIN(RepairJob,RepairLog) WHERE itemId=:phone";
-	} else {
-		$queryString = "SELECT name FROM Customers WHERE phoneNo=:phone";
-		$query = oci_parse($conn,$queryString);
-		oci_bind_by_name($query,':phone',$number);
-	}
-
-	$queryString  = "SELECT model FROM RepairItem WHERE itemId IN (" . $subquery . ")";
+	$str = "";
+	$queryString = 'BEGIN :res := getMachineStatus(:id,:number); END;';
 	
 	$query = oci_parse($conn,$queryString);
-	oci_bind_by_name($query,':phone',$number);
+
+	oci_bind_by_name($query,':res', $str);
+	oci_bind_by_name($query,':id', $machine_id);
+	oci_bind_by_name($query,':number',$number);
+
 	$res = oci_execute($query);
 
 	if(!$res) {
@@ -51,14 +40,6 @@ function showMachineStatus($machine_id, $cust_phone)
 		exit();
 	}
 
-	if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-		$name = $row[0];
-	} else {
-		echo "1, Invalid Customer Phone Number Provided: " . $number;
-		exit();
-	}
-
-	$str = implode (",", $arr);
     echo "0," . $str;
 }
 

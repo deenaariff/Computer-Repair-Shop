@@ -11,100 +11,43 @@
    </head>
    <body>
 
-      <style>
-      	form {
-      		width: 500px;
-      		margin: 0 auto;
-      	}
-      	.search {
-      		padding: 6px 15px 6px 30px;
-      		margin: 3px;
-      	}
-      	.rounded {
-      		border-radius: 15px;
-
-      	}
-      </style>
-
-   	<div class="lighter">
-	      <form class="example wow fadeIn">
-	      	<span><input type="text" class="search rounded" placeholder="Search for machine Id.."></span>
-	      	<span><input type="text" class="search rounded" placeholder="Search for customer Phone.."></span>
-	      </form>
-	  </div>
-      <div class="container-table wow fadeIn">
-         <div style="border-radius: 5px;" class="table">
-            <table style="border-radius: 5px;">
-               <thead>
-                  <tr class="table-head">
-                     <th class="column">Machine Id</th>
-                     <th class="column">Service Id</th>
-                     <th class="column">Machine Model</th>
-                     <th class="column">Customer Phone</th>
-                     <th class="colum4">Time of Arrival</th>
-                     <th class="column">Cost</th>
-                     <th class="column">Status</th>
-                     <th class="column">Save</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td class="column">001</td>
-                     <td class="column">200398</td>
-                     <td class="column">iPhone X 64Gb Grey</td>
-                     <td class="column">xxx-xxx-xxxx</td>
-                     <td class="column">7:00</td>
-                     <td class="column">$400</td>
-                     <td class="column">
-                     	<form>
-	                        <select>
-	                            <option value="DONE">DONE</option>
-	                            <option value="UNDER_REPAIR">UNDER_REPAIR</option>
-	                            <option value="READY">READY</option>
-	                        </select>
-                    	</form>
-                     </td>
-                     <td class="column"><i class="far fa-edit"></i></td>
-                  </tr>
-                  <tr>
-                     <td class="column1">002</td>
-                     <td class="column2">200397</td>
-                     <td class="column3">Samsung S8 Black</td>
-                     <td class="column4">xxx-xxx-xxxx</td>
-                     <td class="column">7:00</td>
-                     <td class="column">$400</td>
-                     <td class="column">
-                     	<form>
-	                        <select>
-	                            <option value="DONE">DONE</option>
-	                            <option value="UNDER_REPAIR">UNDER_REPAIR</option>
-	                            <option value="READY">READY</option>
-	                        </select>
-                    	</form>
-                     </td>
-                     <td class="column6"><i class="far fa-edit"></i></td>
-                  </tr>
-                  <tr>
-                     <td class="column1">003</td>
-                     <td class="column2">200396</td>
-                     <td class="column3">Game Console Controller</td>
-                     <td class="column4">xxx-xxx-xxxx</td>
-                     <td class="column">7:00</td>
-                     <td class="column">$400</td>
-                     <td class="column">
-                     	<form>
-	                        <select>
-	                            <option value="DONE">DONE</option>
-	                            <option value="UNDER_REPAIR">UNDER_REPAIR</option>
-	                            <option value="READY">READY</option>
-	                        </select>
-                    	</form>
-                     </td>
-                     <td class="column6"><i class="far fa-edit"></i></td>
-                  </tr>
-               </tbody>
-            </table>
+      <div class = "main">
+         <div class = "wrapper">
+             <div id="container" class="container wow fadeIn">
+               <h2> Machine Status Form</h2>
+               <form class="acceptForm">
+                  <div class="row">
+                     <div class="col-25">
+                        <label for="subject">Machine ID</label>
+                     </div>
+                     <div class="col-75">
+                        <input type="text" id="input" name="m_id" placeholder="Enter the Machine ID">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-25">
+                        <label for="subject">Customer Phone</label>
+                     </div>
+                     <div class="col-75">
+                        <input type="text" id="input" name="phone" placeholder="Enter the Machine ID">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-25">
+                        <label for="lname">Machine Model</label>
+                     </div>
+                     <div class="col-75">
+                        <input type="text" id="input" name="status" placeholder="Enter the Machine's new Status">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <input class="status_submit_button" type="submit" value="Submit">
+                  </div>
+                </form>
+           </div>
          </div>
       </div>
+
+      
    </body>
 </html>
