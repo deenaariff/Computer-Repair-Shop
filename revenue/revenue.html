@@ -1,0 +1,51 @@
+ <!--	The user should be prompted to enter the necessary information. If a service contract number is given, it should be checked against the database of stored contract numbers and accept the contract, if the contract period covers the date the machine was brought in. If the contract is not valid, a message to that effect should be displayed and the machine accepted for repair (with costs).  -->
+
+<!-- A RepairJob is identified by a machine id of the repair item, a service contract id (if under maintenance contract), the time of arrival (this is the date and time that the machine is accepted for repair), owner’s information (customer) and status (UNDER_REPAIR, READY,DONE). -->
+
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="./revenue.css">
+      <link rel="stylesheet" type="text/css" href="../css/animate.css">
+      <script src="../js/jquery.min.js"></script>
+      <script src="../js/dbTransactions.js"></script>
+      <script src="./revenue.js"></script>
+      <script src="../js/wow.min.js"></script>
+      <script>
+         //new WOW().init();
+      </script>
+
+   </head>
+
+   <body>
+   
+      <div class = "main">
+         <div class = "wrapper">
+             <div id="container" class="container wow fadeIn">
+               <h2> Accept a New Machine For Repairs </h2>
+               <form class="acceptForm">
+                  <div class="row">
+                     <div class="col-25">
+                        <label for="subject">Date 1</label>
+                     </div>
+                     <div class="col-75">
+                        <input type="date" id="input" name="date1" >
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-25">
+                        <label for="lname">Date 2</label>
+                     </div>
+                     <div class="col-75">
+                        <input type="date" id="input" name="date2">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <input class="submit_button" type="submit" value="Submit">
+                  </div>
+                </form>
+           </div>
+         </div>
+      </div>
+
+   </body>
+</html>

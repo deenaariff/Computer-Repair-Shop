@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
+}
+
+body {
+    font-family: OpenSans-Regular;
+    width: 100%;
+}
+
+.main {
+             height: 100%;
+             width: 100%;
+             display: table;
+         }
+         .wrapper {
+             display: table-cell;
+             height: 100%;
+             vertical-align: middle;
+         }
+
+input::-webkit-input-placeholder{
+    color:#555;
+}
+input:-moz-placeholder {
+    color:#555;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    background: transparent;
+    background-color: none;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+input[type=text]:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+	margin-top: 20px;
+    background-color: #fff;
+    color: #555;
+    padding: 12px 20px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+
+input[type=submit]:hover {
+    background-color: #e575ec;
+    border: 2px solid #e575ec;
+}
+
+input[type=submit]:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+
+.container {
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+    width: 60%;
+    padding: 2%;
+    margin: auto;
+}
+
+.col-25 {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    margin-left: 2%;
+    width: 68%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
