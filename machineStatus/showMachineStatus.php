@@ -22,8 +22,6 @@ function showMachineStatus($machine_id, $number)
 		exit();
 	}
 
-	$subquery = "";
-	$str = "";
 	$queryString = "BEGIN :res = getMachineStatus(:id,:number); END;";
 	
 	$query = oci_parse($conn,$queryString);
