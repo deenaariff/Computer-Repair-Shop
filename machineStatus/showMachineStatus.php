@@ -33,7 +33,7 @@ function showMachineStatus($machine_id, $number)
 	$res = oci_execute($query);
 
 	if(!$res) {
-		echo "1, Error in Database Query";
+		echo "1, Error in Database Query " . $machine_id . $number;
 		exit();
 	}
 
