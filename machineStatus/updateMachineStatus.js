@@ -40,7 +40,7 @@
 		  if(data['status'] == "") {
 		  	scope.fetchPHPdata(data, "updateMachineStatus.php", callback);
 		  } else {
-		  	scope.fetchPHPdata(data, "showMachineStatus.php", show_callback);
+		  	scope.fetchPHPdata(data, "test.php", show_callback);
 		  }
 
 		});
