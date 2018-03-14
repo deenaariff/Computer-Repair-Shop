@@ -40,6 +40,7 @@
 		  if(data['status'] == "") {
 		  	scope.fetchPHPdata(data, "updateMachineStatus.php", callback);
 		  } else {
+		  	console.log('testing conditional logic');
 		  	scope.fetchPHPdata(data, "test.php", show_callback);
 		  }
 
