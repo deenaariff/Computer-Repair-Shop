@@ -4,7 +4,7 @@
 Given the machine id or customer-phone or email address, should show a machine(s) status. 
 */
 
-if(!isset($_GET['date1']) && !isset($_GET['date2'])) {
+if(!isset($_GET['date1']) || !isset($_GET['date2'])) {
 	echo "1, Some Input Field Are Empty";
 	exit();
 }
@@ -22,7 +22,7 @@ function getRevenue($date1, $date2)
 		exit();
 	}
 
-	$queryString = 'BEGIN :res := getRevenueGenerated(DATE :date1, DATE :date2) END';
+	$queryString = 'BEGIN :res := getRevenueGenerated(DATE :date1, DATE :date2); END';
 	
 	$query = oci_parse($conn,$queryString);
 
