@@ -17,15 +17,15 @@ showMachineStatus($arg1, $arg2);
 
 function showMachineStatus($machine_id, $number)
 {
-	/*$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
+	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
 		echo "1, Error Connecting To Database";
 		exit();
 	}
 
-	$subquery = "";*/
+	$subquery = "";
 	$str = "";
-	/*$queryString = 'BEGIN :res := getMachineStatus(:id,:number); END;';
+	$queryString = 'BEGIN :res := getMachineStatus(:id,:number); END;';
 
 	echo "1, Break2";
 	
