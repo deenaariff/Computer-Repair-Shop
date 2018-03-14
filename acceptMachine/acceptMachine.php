@@ -22,8 +22,8 @@ function acceptMachine($name, $model, $number)
 
 	$machine_id = '002';
 
-	/*acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)*/
-	$queryString = 'BEGIN acceptMachine(:name,:m_id,:model,:cid,:date,:msg); END;';
+	/*acceptMachine(n_name,n_item,model,cId,in_date,message OUT VARCHAR2)*/
+	$queryString = 'BEGIN acceptMachine(:name,:m_id,:model,:cid,DATE :date,:msg); END;';
 
 	$date = "2015-12-11";
 	$message = "";
