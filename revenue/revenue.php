@@ -4,7 +4,7 @@
 Given the machine id or customer-phone or email address, should show a machine(s) status. 
 */
 
-if(!isset($_GET['date1']) || !isset($_GET['date2'])) {
+if(!isset($_GET['date1']) || !isset($_GET['date2'] || !isset($_GET['case'])) {
 	echo "1, Some Input Field Are Empty";
 	exit();
 }
