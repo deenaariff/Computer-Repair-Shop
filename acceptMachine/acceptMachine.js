@@ -4,7 +4,9 @@
 
 	$(document).ready(function(){
 
-		$('.submit_button').click(function(e) {	  
+		$('.submit_button').click(function(e) {	
+
+		  e.preventDefault()  
 
 		  // debug
 		  console.log("Accept Machine Submit button was clicked")
@@ -27,17 +29,15 @@
 
 		  if(missing == true) {
 		  	alert(message)
-		  	e.preventDefault()
 		  	return;
 		  }
 
 		  var callback = function(result,message) {
 		  	if(result == 0) {
-		  		alert("New Machine '" + model + "' was Accepted")
+		  		alert("New Machine '" + model + "' was Accepted");
 		  	} else {
 		  		alert("An Error Occured. " + message)
 		  	}
-		  	e.preventDefault()
 		  }
 
 		  // call function from dbTransactions.js
