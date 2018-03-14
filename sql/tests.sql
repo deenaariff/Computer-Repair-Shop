@@ -14,8 +14,10 @@ begin
 end;
 /
 
+declare
+	output number := 0;
 begin
-	getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
+	ouput := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
 end;
 /
 
