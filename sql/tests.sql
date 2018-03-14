@@ -19,11 +19,44 @@ INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE
 -- should output 40.00
 -- currently outputing 0.00
 declare
+	output VARCHAR;
+begin
+	getMachineStatus('001', '408-663-7143')
+	dbms_output.put_line('getMachineStatus() : ' || output);
+end;
+/
+
+
+-- should output 40.00
+-- currently outputing 0.00
+declare
 	output number := 0;
 begin
 	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-16');
-	dbms_output.put_line('Result : ' || output);
+	dbms_output.put_line('getRevenueGenerated() : ' || output);
 end;
 /
+
+-- should output ?
+-- currently outputing 0.00
+declare
+	output number := 0;
+begin
+	output := getRevenueNoWarranty(DATE '2015-12-8', DATE '2015-12-16');
+	dbms_output.put_line('getRevenueNoWarranty() : ' || output);
+end;
+/
+
+-- should output ?
+-- currently outputing 0.00
+declare
+	output number := 0;
+begin
+	output := getRevenueWarranty(DATE '2015-12-8', DATE '2015-12-16');
+	dbms_output.put_line('getRevenueNoWarranty() : ' || output);
+end;
+/
+
+
 
 commit;
