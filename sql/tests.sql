@@ -16,10 +16,12 @@ INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE
 --end;
 --/
 
+-- should output 40.00
+-- currently outputing 0.00
 declare
 	output number := 0;
 begin
-	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-17');
+	output := getRevenueGenerated(DATE '2015-12-8', DATE '2015-12-16');
 	dbms_output.put_line('Result : ' || output);
 end;
 /
