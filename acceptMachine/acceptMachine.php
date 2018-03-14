@@ -23,7 +23,8 @@ function acceptMachine($name, $model, $number)
 	$machine_id = '002';
 
 	/*acceptMachine(n_name in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)*/
-	$queryString = 'BEGIN acceptMachine(:name,:m_id,:model,:cid,:date,:message); END;/';
+	$queryString = "declare :msg VARCHAR(20) = '';";
+	$queryString = $queryString . "begin acceptMachine(:name,:m_id,:model,:cid,:date,:msg); END;/";
 
 	$date = "2015-12-11";
 	$message = "";
@@ -34,7 +35,7 @@ function acceptMachine($name, $model, $number)
 	oci_bind_by_name($query,':model',$model);
 	oci_bind_by_name($query,':cid',$number);
 	oci_bind_by_name($query,':date',$date);
-	oci_bind_by_name($query,':message',$message);
+	oci_bind_by_name($query,':msg',$message);
 
 	$res = oci_execute($query);
 
