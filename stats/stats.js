@@ -6,8 +6,8 @@ $(document).ready(function(){
 
 	function drawChart1(data1,data2) {
 
-		if(data1.length == 0) data1 = [];
-		if(data2.length == 0) data2 = [];
+		if(data1.length == 0) data1 = ["No Customres"];
+		if(data2.length == 0) data2 = [0];
 
 		values = [];
 		for(var i = 0; i < data2.length; i++) {
@@ -51,8 +51,14 @@ $(document).ready(function(){
 
 	function drawChart2(data1,data2) {
 
-		if(data1.length == 0) data1 = [];
-		if(data2.length == 0) data2 = [];
+		if(data1.length == 0) data1 = ["No Customres"];
+		if(data2.length == 0) data2 = [0];
+
+		values = [];
+		for(var i = 0; i < data2.length; i++) {
+			var val = parseInt(data2[i]);
+			values.push(val);
+		}
 
 		new Chart(document.getElementById("chart2"), {
 
@@ -63,7 +69,7 @@ $(document).ready(function(){
 		        {
 		          label: "Items",
 		          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-		          data: data2
+		          data: values
 		        }
 		      ]
 		    },
