@@ -93,6 +93,35 @@ $(document).ready(function(){
 		}
 	});
 
+	var createRow = function (model,price,cost,hours,description,date,classr) {
+		return "<tr class='row_entry "+classr+"'>" +
+               "<td>" + model + "</td>" +
+               "<td>" + price + "</td>" +
+               "<td>" + cost + "</td>" +
+               "<td>" + hours + "</td>" +
+               "<td>" + description + "</td>" +
+               "<td>" + date + "</td>" +
+               "</tr>"
+	}
+
+	//itemID, contractID, custPhone, empNo, timeOfArrival, DONEDATE
+	var createRows = function(rows) {
+		$('#repairTable').append(createRow("ItemID","ContractID","CustPhone","EmpNo","Arrival","Done","heading"));
+		for(int i = 0; i < rows.length; i++) {
+			row = rows[i].split("|");
+			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],row[5],"title"));
+		}
+	}
+		
+	scope.fetchPHPdata({}, "getRepairJobs.php", function(result,data) {
+		if(result == 0) {
+			var rows = data.split(",");
+			createRows(rows);
+		} else {
+			console.log("Error");
+		}
+	});
+
 		
 });
 
