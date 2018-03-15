@@ -100,7 +100,6 @@ $(document).ready(function(){
                "<td>" + cost + "</td>" +
                "<td>" + hours + "</td>" +
                "<td>" + description + "</td>" +
-               "<td>" + date + "</td>" +
                "</tr>"
 	}
 
