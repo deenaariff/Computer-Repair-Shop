@@ -107,7 +107,7 @@ $(document).ready(function(){
 	var createRows = function(rows) {
 		$('#repairTable').append(createRow("ItemID","ContractID","EmpNo","Arrival","Done","heading"));
 		for(var i = 0; i < rows.length; i++) {
-			console.log(rows[i]);
+			//console.log(rows[i]);
 			row = rows[i].split("|");
 			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
 		}
@@ -116,6 +116,24 @@ $(document).ready(function(){
 	scope.fetchPHPdata({}, "getRepairJobs.php", function(result,data) {
 		if(result == 0) {
 			createRows(data);
+		} else {
+			console.log("Error");
+		}
+	});
+
+	//contractId, custPhone, startDate, endDate, contractType
+	var createRows2 = function(rows) {
+		$('#contractTable').append(createRow("ContractID","Phone","Start Date","End Date","Type","heading"));
+		for(var i = 0; i < rows.length; i++) {
+			//console.log(rows[i]);
+			row = rows[i].split("|");
+			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
+		}
+	}
+
+	scope.fetchPHPdata({}, "getContracts.php", function(result,data) {
+		if(result == 0) {
+			createRows2(data);
 		} else {
 			console.log("Error");
 		}
