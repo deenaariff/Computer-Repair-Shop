@@ -64,8 +64,6 @@ function getCustInfo($number)
 
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 
-		echo "1, Break1";
-
 		// do a nother query here to get the model for a given item id
 		$itemId = $row[0];
 
