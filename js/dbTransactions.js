@@ -22,7 +22,7 @@
 			"service_contract" : **8
 		}*/
 
-		var paramaters = (Object.getOwnPropertyNames(form).length === 0 == null)? "" : generatePHPparamaters(form);
+		var parameters = (Object.getOwnPropertyNames(form).length === 0 == null)? "" : generatePHPparamaters(form);
 
 		URL = php + parameters;
 
