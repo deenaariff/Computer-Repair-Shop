@@ -39,8 +39,6 @@ function getCustInfo($number)
 		echo "1, Invalid Customer Phone Number Provided: " . $number;
 		exit();
 	}
-
-	/* query for all the information in the customer bill */
 	
 	$queryString = "SELECT itemId, contractId, description, timeOfArrival FROM RepairLog WHERE custPhone = :phone";
 
@@ -58,6 +56,8 @@ function getCustInfo($number)
 	$contracts = array();
 	$dates = array();
 	$descriptions = array();
+	$price = array();
+	$total = 0;
 
 	/* iterate over all repsonses that match */
 
@@ -94,40 +94,41 @@ function getCustInfo($number)
 		
 		array_push($descriptions,$row[2]);
 		array_push($dates,$row[3]);
+
+		/* serialize the data for consumption by the front-end */
+		$queryString = "SELECT total FROM CustomerBill WHERE custPhone=:phone AND itemId = :itemId";
+
+		$query3 = oci_parse($conn,$queryString);
+		oci_bind_by_name($query3,':phone',$number);
+		oci_bind_by_name($query3,':itemId',$itemId);
+		$res = oci_execute($query3);
+
+		if(!$res) {
+			echo "1, Error in Database Query for customer total in Customer Bill";
+			exit();
+		}
+
+		$total = 0;
+
+		if(($row3=oci_fetch_array($query3,OCI_BOTH)) == false) {
+			echo "1, Customer is Not Billed for this number: " . $number;
+			exit();
+		}
+
+		while(($row3=oci_fetch_array($query3,OCI_BOTH)) != false) {
+			$total = $total + (int)$row3[0];
+			array_push($prices,(int)$row3[0]);
+		}
 	}
 
-	/* serialize the data for consumption by the front-end */
 
 	$contract_str = implode("|",$contracts);
 	$model_str = implode("|",$models);
 	$description_str = implode("|",$descriptions);
-	$dates_str = implode("|",$dates);
+	$dates_str = implode("|",$dates);	
+	$price_str = implode("|",$prices);
 
-	$total = 0;
-
-	$queryString = "SELECT total FROM CustomerBill WHERE custPhone=:phone";
-
-	$query = oci_parse($conn,$queryString);
-	oci_bind_by_name($query,':phone',$number);
-	$res = oci_execute($query);
-
-	if(!$res) {
-		echo "1, Error in Database Query for customer total in Customer Bill";
-		exit();
-	}
-
-	$total = 0;
-
-	if(($row=oci_fetch_array($query,OCI_BOTH)) == false) {
-		echo "1, Customer is Not Billed for this number: " . $number;
-		exit();
-	}
-
-	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-		$total = $total + (int)$row[0];
-	}	
-
-	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $total);
+	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $total, 7 => $price_str);
 
 	$str = implode (",", $arr);
     echo "0," . $str;
