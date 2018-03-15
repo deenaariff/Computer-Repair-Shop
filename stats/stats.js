@@ -51,6 +51,9 @@ $(document).ready(function(){
 
 	function drawChart2(data1,data2) {
 
+		console.log(data1);
+		console.log(data2);
+
 		if(data1.length == 0) data1 = ["No Customres"];
 		if(data2.length == 0) data2 = [0];
 
