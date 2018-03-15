@@ -29,7 +29,7 @@ $(document).ready(function(){
 		});
 	}
 
-	scope.fetchPHPdata({}, "repairJobStats.php", function(result,data) {
+	scope.fetchPHPdata({}, "repairLogStats.php", function(result,data) {
 		if(result == 0) {
 			var split = data.split(",");
 			var labels = split[0].split("|");
