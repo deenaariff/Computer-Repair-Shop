@@ -41,7 +41,7 @@
 		}
 
 		/* upate with initial default model */
-		fieldUpdate();
+		fieldUpdate(model);
 
 		/* update the model with a given array of data */
 		function updateCustomerInfo(m,data) {
