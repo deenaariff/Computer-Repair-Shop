@@ -42,7 +42,6 @@
 		  	}
 		  }
 
-
 		  // call function from dbTransactions.js
 		  scope.fetchPHPdata(data, "revenue.php", callback);
 

@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_GET['name']) || !isset($_GET['model']) || !isset($_GET['phone_number'])) {
+if(!isset($_GET['name']) || !isset($_GET['model']) || !isset($_GET['phone_number'])  || !isset($_GET['c_id'])) {
 	echo "1, Some Input Field Are Empty";
 	exit();
 }
@@ -8,10 +8,11 @@ if(!isset($_GET['name']) || !isset($_GET['model']) || !isset($_GET['phone_number
 $arg1 = $_GET['name'];
 $arg2 = $_GET['model'];
 $arg3 = $_GET['phone_number'];
+$arg4 = $_GET['c_id'];
 
-acceptMachine($arg1, $arg2, $arg3);
+acceptMachine($arg1, $arg2, $arg3, $arg4);
 
-function acceptMachine($name, $model, $number)
+function acceptMachine($name, $model, $number, $c_id)
 {
 
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
@@ -20,19 +21,16 @@ function acceptMachine($name, $model, $number)
 		exit();
 	}
 
-	$machine_id = '002';
-
 	/*acceptMachine(n_name,n_item,model,cId,in_date,message OUT VARCHAR2)*/
-	$queryString = 'BEGIN acceptMachine(:name,:m_id,:model,:cid,DATE :date,:msg); END;';
+	$queryString = 'BEGIN acceptMachine(:name,:phone,:model,:cid,DATE :date,:msg); END;';
 
-	$date = "2015-12-11";
-	$message = "";
+	$date = date("Y-m-d");
 
 	$query = oci_parse($conn,$queryString);
-	oci_bind_by_name($query,':name',$nams);
-	oci_bind_by_name($query,':m_id',$machine_id);
+	oci_bind_by_name($query,':name',$name);
+	oci_bind_by_name($query,':phone',$number);
 	oci_bind_by_name($query,':model',$model);
-	oci_bind_by_name($query,':cid',$number);
+	oci_bind_by_name($query,':cid',$c_id);
 	oci_bind_by_name($query,':date',$date);
 	oci_bind_by_name($query,':msg',$message);
 
