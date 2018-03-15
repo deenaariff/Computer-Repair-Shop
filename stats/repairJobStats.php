@@ -1,12 +1,14 @@
 <?php
 
+/* query for a customer name given the customer phone number */
+exit();
+
 $conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 if(!$conn) {
 	echo "1, Error Connecting To Database";
 	exit();
 }
 
-/* query for a customer name given the customer phone number */
 
 $queryString = "SELECT name,count(*) FROM (SELECT C.name, itemId FROM Customers C, RepairJob R WHERE C.phoneNo = R.custPhone) GROUP BY NAME";
 
