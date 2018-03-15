@@ -15,6 +15,7 @@
 
 		/* update the model with a given array of data */
 		var updateRepairJobs = function(m,total_data) {
+			console.log('reached');
 			for(var i = 0; i < total_data.length; i ++) {
 				var data = total_data[i].split("|");
 				$('#repairTable').createRow(data[0],data[1],data[2],data[3],data[4]);
@@ -23,6 +24,8 @@
 
 		/* callback to handle call to PHP file */
 		var callback = function(result,data) {
+			console.log(result);
+			console.log(data);
 		  	if(result == 0) {
 		  		updateRepairJobs(model,data);
 		  	} else {
