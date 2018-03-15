@@ -26,13 +26,13 @@ function showMachineStatus($machine_id, $number)
 	
 	$query = oci_parse($conn,$queryString);
 
-	oci_bind_by_name($query,':id', $machine_id);
+	oci_bind_by_name($query,':id',$machine_id);
 	oci_bind_by_name($query,':number',$number);
 
 	$res = oci_execute($query);
 
 	if(!$res) {
-		echo "1, Error in Database Query ";
+		echo "1, Error in Database Query " . $machine_id . $number;
 		exit();
 	}
 
