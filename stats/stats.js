@@ -167,6 +167,7 @@ $(document).ready(function(){
 		$('#empTable').append(createRow2("Emp Id","Employee","Phone","heading"));
 		for(var i = 0; i < rows.length; i++) {
 			var row = rows[i].split("|");
+			console.log(row);
 			$('#empTable').append(createRow2(row[0],row[1],row[2],"title"));
 		}
 	}
