@@ -25,11 +25,13 @@ function getRepairJobs()
 		exit();
 	}
 
+	$data = array();
+
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-		echo "1", $row[0];
+		array_push($data,implode("|",$row));
 	}
 
-    echo "0," . $str;
+    echo "0," . implode(",",$data);
 }
 
 ?>
