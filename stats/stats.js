@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 		values = [];
 		for(var i = 0; i < data2.length; i++) {
-			var val = (int) data2[i];
+			var val = parseInt(data2[i]);
 			values.push(val);
 		}
 
