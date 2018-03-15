@@ -28,7 +28,7 @@
 
 		  var show_callback = function(result,message) {
 		  	if(result == 0) {
-		  		alert("Machine Status for '" + data['m_id'] + ' is ' + message);
+		  		alert(message);
 		  	} else {
 		  		alert("An Error Occured. " + message)
 		  	}

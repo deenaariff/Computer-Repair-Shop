@@ -40,7 +40,7 @@ function showMachineStatus($machine_id, $p_number)
 
     while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 		//echo json_encode($row);
-		$str = $str . $row[0] . "is" . $row[1] . ". ";
+		$str = $str . $row[0] . " is " . $row[1] . ". ";
 	};
 
 	echo "0, " . $str;
