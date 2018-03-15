@@ -39,7 +39,7 @@ function acceptMachine($name, $model, $number, $c_id, $m_id)
 	$res = oci_execute($query);
 
 	if(!$res) {
-		echo "1, Error in Database Query";
+		echo "1, This Item has Already Been Added to the Database";
 		exit();
 	}
 
