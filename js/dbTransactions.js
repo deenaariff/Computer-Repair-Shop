@@ -25,6 +25,7 @@
 		var parameters = (Object.getOwnPropertyNames(form).length === 0 == null)? "" : generatePHPparamaters(form);
 
 		URL = php + parameters;
+		console.log(URL);
 
 		$.ajax({
 		   url: URL,
