@@ -15,6 +15,7 @@
 
 		/* update the model with a given array of data */
 		var updateRepairJobs = function(total_data) {
+			console.log(total_data);
 			for(var i = 0; i < total_data.length; i ++) {
 				var data = total_data[i].split("|");
 				var html = createRow(data[0],data[1],data[2],data[3],data[4]);
