@@ -123,7 +123,7 @@ function getCustInfo($number)
 		exit();
 	}
 
-	where(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 		$total = $total + (int)$row[0];
 	}	
 
