@@ -23,10 +23,9 @@ function acceptMachine($name, $model, $number, $c_id, $m_id)
 	}
 
 	$date = date("Y-m-d");
-	echo $date;
 	
 	/*(n_name,phone,n_item,model,cId, in_date, message)*/
-	$queryString = "BEGIN acceptMachine(:name,:phone,:m_id,:model,:cid,to_date(:date, 'YYYY-MM-DD')),:msg); END;";
+	$queryString = "BEGIN acceptMachine(:name,:phone,:m_id,:model,:cid,to_date(:date,'YYYY-MM-DD'),:msg); END;";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':name',$name);
