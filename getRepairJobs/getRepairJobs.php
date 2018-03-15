@@ -38,6 +38,7 @@ function getRepairJobs()
 );*/
 
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+		echo json_encode($row);
 		$str = $row['itemId'] . "|" . $row['contractId'] . "|" . $row['custPhone'] . "|" . $row['empNo'] . "|" . $row['timeOfArrival'] . "|" . $row['status'];
 		array_push($data,$str);
 	}
