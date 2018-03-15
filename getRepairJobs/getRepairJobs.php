@@ -27,8 +27,19 @@ function getRepairJobs()
 
 	$data = array();
 
+	/*
+	Create or Replace Type job_Rec as object (
+	itemId VARCHAR(10),
+        contractId VARCHAR(10),
+        custPhone VARCHAR(14),
+        empNo VARCHAR(10),
+        timeOfArrival DATE,
+        status VARCHAR(12)
+);*/
+
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-		echo json_encode($row);
+		$str = $row[0] . "|" . $row[1] . "|" . $row[2] . "|" . $row[3] . "|" . $row[4];
+		array_push($data,$str)
 	}
 
     echo "0," . implode(",",$data);
