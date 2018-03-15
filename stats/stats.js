@@ -1,8 +1,8 @@
-console.log("started");
-
 var scope = this;
 
 $(document).ready(function(){
+
+	console.log("started");
 
 	function drawChart1(data1,data2) {
 
