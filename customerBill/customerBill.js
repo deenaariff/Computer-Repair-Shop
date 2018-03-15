@@ -40,7 +40,7 @@
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
 				var row = items[i];
-				$('#billTable').append(createRow(row[0] + "(" + row[1] + ")",row[2],row[3],row[4],row[5],row[6],"title"));
+				$('#billTable').append(createRow(row[0],row[2],row[3],row[4],row[5],row[6],"title"));
 				sum += row[1];
 			}
 		}
@@ -61,13 +61,13 @@
 			m['items'] = [];
 			for(var i = 0; i < matrix[0].length; i++) {
 				var contract = matrix[0][i];
-				var model =  matrix[1][i];
+				var model =  matrix[1][i] + " (" + contract + ")"
 				var description = matrix[2][i];
 				var date = matrix[3][i];
 				var price = "$" + matrix[4][i];
 				var costs = "$" + matrix[5][i];
 				var hours = matrix[6][i];
-				m['items'].push([model,contract,price,costs,hours,description,date]);
+				m['items'].push([model,price,costs,hours,description,date]);
 			}
 			m['total'] = data[9];
 			fieldUpdate(m);
