@@ -22,7 +22,7 @@ if(!$res) {
 $rows = array();
 
 while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-	$entry = $row[0] . "|" . $row[2] . "|" . $row[3] . "|" . $row[4] . "|" . $row[5];
+	$entry = $row[0]  . "|" . $row[1] . "|" . $row[2] . "|" . $row[3] . "|" . $row[4] . "|" . $row[5];
 	array_push($rows,$entry);
 }
 
