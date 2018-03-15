@@ -4,9 +4,9 @@
 Given the machine id or customer-phone or email address, should show a machine(s) status. 
 */
 
-getRepairJob();
+getRepairJobs();
 
-function getRepairJob()
+function getRepairJobs()
 {
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
@@ -16,7 +16,7 @@ function getRepairJob()
 
 	$p_cursor = oci_new_cursor($conn);
 
-	$queryString = "BEGIN :curs := getRepairJob(); END;";
+	$queryString = "BEGIN :curs := getRepairJobs(); END;";
 	
 	$query = oci_parse($conn,$queryString);
 
