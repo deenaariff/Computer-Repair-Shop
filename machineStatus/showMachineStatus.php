@@ -44,7 +44,7 @@ function showMachineStatus($machine_id, $number)
 		$str = $str . $row[0] . "is" . $row[1] . ". ";
 	};
 
-	echo "0, " . $str
+	echo "0, " . $str;
 }
 
 ?>
