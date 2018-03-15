@@ -142,7 +142,9 @@ $(document).ready(function(){
 		$('#contractTable').append(createRow("ContractID","Phone","Start Date","End Date","Type","heading"));
 		for(var i = 0; i < rows.length; i++) {
 			var row = rows[i].split("|");
-			$('#contractTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
+			if(row.length > 1) {
+				$('#contractTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
+			}
 		}
 	}
 
