@@ -125,7 +125,9 @@ $(document).ready(function(){
 		$('#repairTable').append(createRow("ItemID","ContractID","EmpNo","Arrival","Done","heading"));
 		for(var i = 0; i < rows.length; i++) {
 			var row = rows[i].split("|");
-			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
+			if(row.length > 1) {
+				$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
+			}
 		}
 	}
 		
