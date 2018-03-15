@@ -86,7 +86,12 @@ function getCustInfo($number)
 
 		/* push all other data into respective arrays */
 
-		array_push($contracts,$row[1]);
+		if($row[1] === null) {	
+			array_push($contracts,"NO CONTRACT");
+		} else {
+			array_push($contracts,$row[1]);
+		}
+		
 		array_push($descriptions,$row[2]);
 		array_push($dates,$row[3]);
 	}
