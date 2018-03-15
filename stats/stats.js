@@ -1,19 +1,21 @@
 console.log("started");
 
+var scope = this;
+
 $(document).ready(function(){
 
 	function drawChart1(data1,data2) {
 
 		new Chart(document.getElementById("chart1"), {
-			
+
 		  	type: 'bar',
 		    data: {
-		      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+		      labels: data1,
 		      datasets: [
 		        {
-		          label: "Population (millions)",
+		          label: "Items",
 		          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-		          data: [2478,5267,734,784,433]
+		          data: data2
 		        }
 		      ]
 		    },
@@ -21,11 +23,22 @@ $(document).ready(function(){
 		      legend: { display: false },
 		      title: {
 		        display: true,
-		        text: 'Predicted world population (millions) in 2050'
+		        text: 'Repair Jobs Per Customer'
 		      }
 		    }
 		});
 	}
+
+	scope.fetchPHPdata(data, "repairJobStats.php", function(result,data) {
+		if(result == 0) {
+			var split = data.split(",");
+			var labels = split[0].split("|");
+			var data = split[1].split("|");
+			drawChart1(labels,data);
+		} else {
+			console.log("Error");
+		}
+	});
 
 	function drawChart2(data1,data2) {
 
