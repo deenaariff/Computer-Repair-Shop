@@ -27,7 +27,7 @@ function acceptMachine($name, $model, $number, $c_id, $m_id)
 
 	
 	/*(n_name,phone,n_item,model,cId, in_date, message)*/
-	$queryString = "BEGIN acceptMachine(:name,:phone,:m_id,:model,:cid," . $date_string . ",:msg); END;";
+	$queryString = "BEGIN acceptMachine(:name,:phone,:m_id,:model,:cid,:date,:msg); END;";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':name',$name);
@@ -35,6 +35,7 @@ function acceptMachine($name, $model, $number, $c_id, $m_id)
 	oci_bind_by_name($query,':m_id',$m_id);
 	oci_bind_by_name($query,':model',$model);
 	oci_bind_by_name($query,':cid',$c_id);
+	oci_bind_by_name($query,':date',$date_string);
 	oci_bind_by_name($query,':msg',$message,60,SQLT_VCS);
 
 	$res = oci_execute($query);
