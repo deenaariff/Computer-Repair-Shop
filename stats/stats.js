@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 		  	type: 'bar',
 		    data: {
-		      labels: values,
+		      labels: data1,
 		      datasets: [
 		        {
 		          label: "Items",
