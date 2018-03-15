@@ -66,7 +66,7 @@ END;
 /
 Show errors;
 --Accept a new machine
-Create or Replace Procedure acceptMachine(n_name in VARCHAR, phone in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR2)
+Create or Replace Procedure acceptMachine(n_name in VARCHAR, phone in VARCHAR, n_item in VARCHAR, model in VARCHAR, cId in VARCHAR, in_date in DATE, message OUT VARCHAR)
 
 AS
 Cursor Contract_cur is Select * from ServiceContract;
@@ -102,6 +102,8 @@ BEGIN
 
 	l_price := dbms_random.value(700.00, 1500.00);
 	l_year := dbms_random.value(2000, 2018);
+
+	message := '0, Inserted into Record';
 		
 	IF l_date >= l_contract.startDate AND l_date <= l_contract.endDate THEN
 		
@@ -146,7 +148,6 @@ BEGIN
 	END IF;
 	
 	Insert into CustomerBill values(n_item, phone, l_date, NULL, NULL, NULL);
-	message := '0, Inserted into Record';
 	commit;
 END;
 /
