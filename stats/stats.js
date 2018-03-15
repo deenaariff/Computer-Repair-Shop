@@ -6,8 +6,8 @@ $(document).ready(function(){
 
 	function drawChart1(data1,data2) {
 
-		if(data1.length == 0) data1 = ["No Customres"];
-		if(data2.length == 0) data2 = [0];
+		if(data1.length == 1 && data1[0] == "") data1 = ["No Customers"];
+		if(data2.length == 1 && data2[0] == "") data2 = [0];
 
 		values = [];
 		for(var i = 0; i < data2.length; i++) {
@@ -54,8 +54,8 @@ $(document).ready(function(){
 		console.log(data1);
 		console.log(data2);
 
-		if(data1.length == 0) data1 = ["No Customres"];
-		if(data2.length == 0) data2 = [0];
+		if(data1.length == 1 && data1[0] == "") data1 = ["No Customers"];
+		if(data2.length == 1 && data2[0] == "") data2 = [0];
 
 		values = [];
 		for(var i = 0; i < data2.length; i++) {
