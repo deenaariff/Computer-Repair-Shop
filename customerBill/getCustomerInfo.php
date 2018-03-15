@@ -119,12 +119,13 @@ function getCustInfo($number)
 	$total = 0;
 
 	if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-		$total = $total + (int)$row[0];
-		echo "1," . $row[0];
-	} else {
 		echo "1, Customer is Not Billed for this number: " . $number;
 		exit();
 	}
+
+	where(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+		$total = $total + (int)$row[0];
+	}	
 
 	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $total);
 
