@@ -170,3 +170,38 @@ NL-08014: Message 8014 not found; No message file for product=network, facility=
   ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
 User inputted base directory is invalid [48187] [/oracle/ora11g]
 
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=beq)(PROGRAM=/oracle/ora11g/11.2.0/OraHome1/bin/oracle)(ARGV0=oracledb11g)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')(DETACH=NO))(CONNECT_DATA=(CID=(PROGRAM=sqlplus)(HOST=linux60815)(USER=mcai))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 11.2.0.1.0 - Production
+	Oracle Bequeath NT Protocol Adapter for Linux: Version 11.2.0.1.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 11.2.0.1.0 - Production
+  Time: 14-MAR-2018 18:00:24
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 2
+    nt OS err code: 0
+NL-08014: Message 8014 not found; No message file for product=network, facility=NL	   []
+ NL-08015: Message 8015 not found; No message file for product=network, facility=NL
+  ORA-48165: Message 48165 not found; No message file for product=RDBMS, facility=ORA
+User inputted base directory is invalid [48187] [/oracle/ora11g]
+

@@ -1,4 +1,15 @@
 --Procedure tests
+@tables
+@procedures
+@triggers
+
+--Insert values into RepairPerson
+Insert into RepairPerson values('E01', NULL, NULL);
+Insert into RepairPerson values('E02', NULL, NULL);
+Insert into RepairPerson values('E03', NULL, NULL);
+Insert into RepairPerson values('E04', NULL, NULL);
+Insert into RepairPerson values('E05', NULL, NULL);
+Insert into RepairPerson values('E06', NULL, NULL);
 
 --Test newCustomer
 execute newCustomer('408-828-3360', 'Maggie');
@@ -24,7 +35,7 @@ BEGIN
 	
 	--Test contract not valid
 	acceptMachine('Sally', '000-111-2222','007','Windows','S04', DATE '2018-03-13', msg);
-	acceptMachine('Sally', '000-1112222','008','Samsung','S05', DATE '2018-03-10', msg);
+	acceptMachine('Sally', '000-111-2222','008','Samsung','S05', DATE '2018-03-10', msg);
 
 	--Test new customer
 	acceptMachine('Bob','123-123-1234','009','Samsung',NULL, DATE '2018-03-13', msg);
@@ -42,9 +53,9 @@ execute updateMachineStatus('005', 'DONE');
 execute updateMachineStatus('006', 'DONE');
 
 --Test getMachineStatus
-Select getMachineStatus('003', '408-828-3360') from dual;
-Select getMachineStatus('005', '123-456-7890') from dual;
-Select getMachineStatus('007', '000-111-2222') from dual;
+Select * from table(showMachineStatus('003', NULL));
+Select * from table(showMachineStatus(NULL, '123-456-7890'));
+Select * from table(showMachineStatus('007', '000-111-2222'));
 
 --Test getRepairJobs
 Select * from table(getRepairJobs);
