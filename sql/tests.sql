@@ -9,12 +9,12 @@ INSERT INTO ServiceContract VALUES('S02',DATE '2018-03-10',DATE '2018-03-17','40
 INSERT INTO ServiceContract VALUES('S04',DATE '2018-03-10',DATE '2018-03-17','408-663-7143',NULL,NULL,'SINGLE');
 INSERT INTO RepairPerson VALUES('e01','john smith','408-666-6666');
 
-declare
-	msg  VARCHAR2(60);
-begin
-	acceptMachine('Deen Aarif','408-663-7143','002','Samsung', 'S02', DATE '2015-12-11',msg);
-end;
-/
+--declare
+--	msg  VARCHAR2(60);
+--begin
+--	acceptMachine('Deen Aarif','408-663-7143','002','Samsung', 'S02', DATE '2015-12-11',msg);
+--end;
+--/
 
 -- should output 40.00
 -- currently outputing 0.00
