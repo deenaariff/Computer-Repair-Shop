@@ -127,7 +127,7 @@ function getCustInfo($number)
 	$dates_str = implode("|",$dates);	
 	$price_str = implode("|",$prices);
 
-	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $total, 7 => $price_str);
+	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $price_str, 7 => $total);
 
 	$str = implode (",", $arr);
     echo "0," . $str;

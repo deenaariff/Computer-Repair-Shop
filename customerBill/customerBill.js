@@ -51,7 +51,7 @@
 			m['customer_name'] = data[0];
 			m['customer_phone'] = data[1];
 			var matrix = [];
-			for(var i = 2; i <= 5; i++) {
+			for(var i = 2; i <= 6; i++) {
 				matrix.push(data[i].split("|"))
 			}
 			m['items'] = [];
@@ -61,7 +61,7 @@
 				var date = matrix[3][i];
 				m['items'].push([model,description,date]);
 			}
-			m['total'] = data[6];
+			m['total'] = data[7];
 			console.log(data);
 			console.log(m);
 			fieldUpdate(m);
