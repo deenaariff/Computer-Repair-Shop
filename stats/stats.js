@@ -9,11 +9,14 @@ $(document).ready(function(){
 		if(data1.length == 1 && data1[0] == "") data1 = ["No Customers"];
 		if(data2.length == 1 && data2[0] == "") data2 = [0];
 
-		values = [];
+		var values = [];
 		for(var i = 0; i < data2.length; i++) {
 			var val = parseInt(data2[i]);
 			values.push(val);
 		}
+
+		console.log("Test1: " + data1);
+		console.log("Test2: " + values);
 
 		new Chart(document.getElementById("chart1"), {
 
@@ -54,7 +57,7 @@ $(document).ready(function(){
 		if(data1.length == 1 && data1[0] == "") data1 = ["No Customers"];
 		if(data2.length == 1 && data2[0] == "") data2 = [0];
 
-		values = [];
+		var values = [];
 		for(var i = 0; i < data2.length; i++) {
 			var val = parseInt(data2[i]);
 			values.push(val);
