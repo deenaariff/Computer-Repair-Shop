@@ -127,7 +127,7 @@ $(document).ready(function(){
 		for(var i = 0; i < rows.length; i++) {
 			//console.log(rows[i]);
 			row = rows[i].split("|");
-			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
+			$('#contractTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
 		}
 	}
 
