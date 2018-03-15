@@ -9,10 +9,10 @@
 	}
 
 	/* Helper function to generate html for customer info */
-	var getCustInfo = function () {
-		return "Customer Name: " + model['customer_name']+
-			   "<br>"+"Phone #: " + model['customer_phone'] +
-			   "<br>"+"Total Price: $" + model['total'] 	
+	var getCustInfo = function (m) {
+		return "Customer Name: " + m['customer_name']+
+			   "<br>"+"Phone #: " + m['customer_phone'] +
+			   "<br>"+"Total Price: $" + m['total'] 	
 	}
 
 	/* Helper function to generate html for a table row of data*/
@@ -27,7 +27,7 @@
 	$(document).ready(function(){
 
 		/* Update all the fields in the html based on new data in the model */
-		function fieldUpdate() {
+		function fieldUpdate(m) {
 			$("#cust_info").html(getCustInfo());
 			$('.row_entry').remove()
 			$('#billTable').append(createRow("Model (Service Contract Id)","Description","Date","heading"));
@@ -45,8 +45,6 @@
 
 		/* update the model with a given array of data */
 		function updateCustomerInfo(m,data) {
-			console.log(m);
-			console.log(data[0]);
 			m['customer_name'] = data[0];
 			m['customer_phone'] = data[1];
 			var matrix = [];
@@ -61,7 +59,9 @@
 				m['items'].push([model,description,date]);
 			}
 			m['total'] = data[6];
-			fieldUpdate();
+			console.log(data);
+			console.log(m);
+			fieldUpdate(m);
 		};
 
 		/* callback to handle call to PHP file */
