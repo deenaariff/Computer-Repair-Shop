@@ -1,37 +1,38 @@
 (function(scope){
 
-	/* Initial default model which to update dynamically */
-	var model = {
-		"customer_name" : "xxxxxx",
-		"customer_phone" : "xxx-xxx-xxxx",
-		"total" : 0,
-		"items" : []
-	}
-
-	/* Helper function to generate html for customer info */
-	var getCustInfo = function (m) {
-		return "Customer Name: " + m['customer_name']+
-			   "<br>"+"Phone #: " + m['customer_phone'] +
-			   "<br>"+"Total Price: $" + m['total'] 	
-	}
-
-	/* Helper function to generate html for a table row of data*/
-	var createRow = function (model,description,date,classr) {
-		return "<tr class='row_entry "+classr+"'>" +
-               "<td>" + model + "</td>" +
-               "<td>" + description + "</td>" +
-               "<td>" + date + "</td>" +
-               "</tr>"
-	}
 
 	$(document).ready(function(){
 
+		/* Initial default model which to update dynamically */
+		var model = {
+			"customer_name" : "xxxxxx",
+			"customer_phone" : "xxx-xxx-xxxx",
+			"total" : 0,
+			"items" : []
+		}
+
+		/* Helper function to generate html for customer info */
+		var getCustInfo = function (m) {
+			return "Customer Name: " + m['customer_name']+
+				   "<br>"+"Phone #: " + m['customer_phone'] +
+				   "<br>"+"Total Price: $" + m['total'] 	
+		}
+
+		/* Helper function to generate html for a table row of data*/
+		var createRow = function (model,description,date,classr) {
+			return "<tr class='row_entry "+classr+"'>" +
+	               "<td>" + model + "</td>" +
+	               "<td>" + description + "</td>" +
+	               "<td>" + date + "</td>" +
+	               "</tr>"
+		}
+
 		/* Update all the fields in the html based on new data in the model */
 		function fieldUpdate(m) {
-			$("#cust_info").html(getCustInfo());
+			$("#cust_info").html(getCustInfo(m));
 			$('.row_entry').remove()
 			$('#billTable').append(createRow("Model (Service Contract Id)","Description","Date","heading"));
-			var items = model['items']
+			var items = m['items']
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
 				var row = items[i];
