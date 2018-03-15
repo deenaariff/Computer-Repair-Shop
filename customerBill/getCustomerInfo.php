@@ -119,7 +119,6 @@ function getCustInfo($number)
 			array_push($prices,(int)$row3[0]);
 		}
 
-		contractId, description, timeOfArrival
 		if(array_key_exists(1,$row)) {
 			array_push($contracts,$row[1]);
 		} else {
