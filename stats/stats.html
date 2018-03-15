@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+      <script src="../js/jquery.min.js"></script>
+      <script src="../js/dbTransactions.js"></script>
+      <script src="./stats.js"></script>
+   </head>
+   <style>
+		html, body { height:100%; margin:0; padding:0 }
+		div { position:fixed; width:50%; height:50% }
+		#NW { top:0;   left:0;   }
+		#NE { top:0;   left:50%;}
+		#SW { top:50%; left:0;}
+		#SE { top:50%; left:50%; }  
+   </style>
+   <body>
+   		<div id="NW" style="width: 50%">
+   			<canvas id="chart1" width="40%" height="10%"></canvas>
+   		</div>
+   		<div id="NE" style="width: 50%">
+   			<canvas id="chart2" width="40%" height="10%"></canvas>
+   		</div>
+   		<div id="SE" style="width: 50%">
+   			<canvas id="chart3" width="40%" height="10%"></canvas>
+   		</div>
+   		<div id="SW" style="width: 50%">
+   			<canvas id="chart4" width="40%" height="10%"></canvas>
+   		</div>
+   </body>
+</html>
