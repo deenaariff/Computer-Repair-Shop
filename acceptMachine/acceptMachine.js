@@ -33,6 +33,7 @@
 		  }
 
 		  var callback = function(result,message) {
+		  	console.log("Reached");
 		  	if(result == 0) {
 		  		alert("New Machine '" + model + "' was Accepted");
 		  	} else {
