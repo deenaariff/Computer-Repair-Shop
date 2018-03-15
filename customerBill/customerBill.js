@@ -22,7 +22,6 @@
 		var createRow = function (model,price,cost,hours,description,date,classr) {
 			return "<tr class='row_entry "+classr+"'>" +
 	               "<td>" + model + "</td>" +
-	               "<td>" + contract + "</td>" +
 	               "<td>" + price + "</td>" +
 	               "<td>" + cost + "</td>" +
 	               "<td>" + hours + "</td>" +
