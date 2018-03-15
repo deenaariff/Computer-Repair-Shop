@@ -5,7 +5,7 @@
 	$(document).ready(function(){
 
 		$(function() {
-		   $("#datepicker").datepicker();
+		   $(".datepicker").datepicker();
 		});
 
 		$('.submit_button').click(function(e) {	
