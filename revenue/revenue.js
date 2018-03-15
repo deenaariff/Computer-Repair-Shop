@@ -5,7 +5,7 @@
 	$(document).ready(function(){
 
 		$(function() {
-		   $(".datepicker").datepicker();
+		   $(".datepicker").datepicker({ dateFormat: 'yyyy-mm-dd' });
 		});
 
 		$('.submit_button').click(function(e) {	
