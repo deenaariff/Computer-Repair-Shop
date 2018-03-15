@@ -30,7 +30,7 @@
 		  	}
 	    }
 
-	    scope.fetchPHPdata(data, "getRepairJobs.php", callback);
+	    scope.fetchPHPdata({}, "getRepairJobs.php", callback);
 
 	});
 

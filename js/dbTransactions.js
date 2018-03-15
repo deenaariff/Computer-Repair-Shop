@@ -22,7 +22,9 @@
 			"service_contract" : **8
 		}*/
 
-		URL = php + generatePHPparamaters(form);
+		var paramaters = (Object.getOwnPropertyNames(form).length === 0 == null)? "" : generatePHPparamaters(form);
+
+		URL = php + parameters;
 
 		$.ajax({
 		   url: URL,
