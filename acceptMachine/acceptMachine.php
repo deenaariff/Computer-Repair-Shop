@@ -21,17 +21,17 @@ function acceptMachine($name, $model, $number, $c_id)
 		exit();
 	}
 
-	/*acceptMachine(n_name,n_item,model,cId,in_date,message OUT VARCHAR2)*/
-	$queryString = 'BEGIN acceptMachine(:name,:phone,:model,:cid,DATE :date,:msg); END;';
-
 	$date = date("Y-m-d");
+	$date_string = "DATE " . $date;
+
+	/*acceptMachine(n_name,n_item,model,cId,in_date,message OUT VARCHAR2)*/
+	$queryString = "BEGIN acceptMachine(:name,:phone,:model,:cid," . $date_string . ",:msg); END;";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':name',$name);
 	oci_bind_by_name($query,':phone',$number);
 	oci_bind_by_name($query,':model',$model);
 	oci_bind_by_name($query,':cid',$c_id);
-	oci_bind_by_name($query,':date',$date);
 	oci_bind_by_name($query,':msg',$message);
 
 	$res = oci_execute($query);
