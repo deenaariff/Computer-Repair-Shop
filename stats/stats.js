@@ -88,6 +88,13 @@ $(document).ready(function(){
 		      title: {
 		        display: true,
 		        text: 'Repair Jobs Per Customer'
+		      },
+		      scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
 		      }
 		    }
 		});
