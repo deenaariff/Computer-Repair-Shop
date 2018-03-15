@@ -26,6 +26,7 @@
 		/* callback to handle call to PHP file */
 		var callback = function(result,data) {
 			console.log("break1: " + (result == 0));
+			console.log("break2: " + data);
 		  	if(result == 0) {
 		  		updateRepairJobs(data);
 		  	} else {
