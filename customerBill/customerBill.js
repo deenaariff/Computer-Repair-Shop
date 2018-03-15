@@ -31,7 +31,7 @@
 		function fieldUpdate(m) {
 			$("#cust_info").html(getCustInfo(m));
 			$('.row_entry').remove()
-			$('#billTable').append(createRow("Price($) - Model (Service Contract Id)","Description","Date","heading"));
+			$('#billTable').append(createRow("Price - Model (Service Contract Id)","Description","Date","heading"));
 			var items = m['items']
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
