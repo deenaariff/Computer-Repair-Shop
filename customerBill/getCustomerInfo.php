@@ -59,6 +59,11 @@ function getCustInfo($number)
 	$prices = array();
 	$total = 0;
 
+	if(($row=oci_fetch_array($query,OCI_BOTH)) == false) {
+		echo "1, Customer is Not Billed for this number: " . $number;
+		exit();
+	}
+
 	/* iterate over all repsonses that match */
 
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
@@ -96,10 +101,9 @@ function getCustInfo($number)
 		array_push($dates,$row[3]);
 
 		/* serialize the data for consumption by the front-end */
-		$queryString = "SELECT total FROM CustomerBill WHERE custPhone=:phone AND itemId = :itemId";
+		$queryString = "SELECT total FROM CustomerBill WHERE itemId = :itemId";
 
 		$query3 = oci_parse($conn,$queryString);
-		oci_bind_by_name($query3,':phone',$number);
 		oci_bind_by_name($query3,':itemId',$itemId);
 		$res = oci_execute($query3);
 
@@ -108,12 +112,7 @@ function getCustInfo($number)
 			exit();
 		}
 
-		if(($row3=oci_fetch_array($query3,OCI_BOTH)) == false) {
-			echo "1, Customer is Not Billed for this number: " . $number;
-			exit();
-		}
-
-		while(($row3=oci_fetch_array($query3,OCI_BOTH)) != false) {
+		if(($row3=oci_fetch_array($query3,OCI_BOTH)) != false) {
 			$total = $total + (int)$row3[0];
 			array_push($prices,(int)$row3[0]);
 		}
