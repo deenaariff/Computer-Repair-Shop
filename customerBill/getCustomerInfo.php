@@ -58,17 +58,13 @@ function getCustInfo($number)
 	$descriptions = array();
 	$prices = array();
 	$total = 0;
-
-	if(($row=oci_fetch_array($query,OCI_BOTH)) == false) {
-		echo "1, Customer is Not Billed for this number: " . $number;
-		exit();
-	}
-
-	echo "1, Break1";
+	$count = 0;
 
 	/* iterate over all repsonses that match */
 
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+
+		echo "1, Break1";
 
 		// do a nother query here to get the model for a given item id
 		$itemId = $row[0];
@@ -118,8 +114,14 @@ function getCustInfo($number)
 			array_push($prices,(int)$row3[0]);
 		}
 
+		$count += 1;
+
 	}
 
+	if($count == 0) {
+		echo "1, Customer is Not Billed for this number: " . $number;
+		exit();
+	}
 
 	$contract_str = implode("|",$contracts);
 	$model_str = implode("|",$models);
