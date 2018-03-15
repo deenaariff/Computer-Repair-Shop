@@ -108,8 +108,6 @@ function getCustInfo($number)
 			exit();
 		}
 
-		$total = 0;
-
 		if(($row3=oci_fetch_array($query3,OCI_BOTH)) == false) {
 			echo "1, Customer is Not Billed for this number: " . $number;
 			exit();
