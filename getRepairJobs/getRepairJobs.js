@@ -17,7 +17,7 @@
 		var updateRepairJobs = function(total_data) {
 			for(var i = 0; i < total_data.length; i ++) {
 				var data = total_data[i].split("|");
-				if(data.length <= 1) {
+				if(data.length > 1) {
 					var html = createRow(data[0],data[1],data[2],data[3],data[4]);
 					console.log(html);
 					$('#repairTable').append(html);
