@@ -44,7 +44,7 @@ function acceptMachine($name, $model, $number, $c_id, $m_id)
 	}
 
 	//$str = implode (",", $arr);
-    echo "0," . $message;
+    echo $message;
 }
 
 ?>
