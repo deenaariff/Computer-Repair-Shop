@@ -26,6 +26,6 @@ while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 	array_push($rows,$entry);
 }
 
-echo "0," . implode(",",$row);
+echo "0," . implode(",",$rows);
 
 ?>
