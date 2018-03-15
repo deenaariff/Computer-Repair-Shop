@@ -11,7 +11,8 @@ $(document).ready(function(){
 
 		values = [];
 		for(var i = 0; i < data2.length; i++) {
-			values.push((int)data[i]);
+			var val = (int) data2[i];
+			values.push(val);
 		}
 
 		new Chart(document.getElementById("chart1"), {
