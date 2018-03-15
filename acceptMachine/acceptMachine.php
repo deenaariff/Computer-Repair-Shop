@@ -35,7 +35,7 @@ function acceptMachine($name, $model, $number, $c_id, $m_id)
 	oci_bind_by_name($query,':m_id',$m_id);
 	oci_bind_by_name($query,':model',$model);
 	oci_bind_by_name($query,':cid',$c_id);
-	oci_bind_by_name($query,':msg',$message);
+	oci_bind_by_name($query,':msg',$message,60,SQLT_VCS);
 
 	$res = oci_execute($query);
 
