@@ -32,7 +32,7 @@ $(document).ready(function(){
 		      legend: { display: false },
 		      title: {
 		        display: true,
-		        text: 'Repair Jobs Per Customer'
+		        text: 'Repair Logs Per Customer'
 		      }
 		    }
 
