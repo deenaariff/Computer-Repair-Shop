@@ -105,7 +105,7 @@ function getCustInfo($number)
 
 	$total = 0;
 
-	$queryString = "SELECT total FROM CustomerBill WHERE custPhone=:phone";
+	$queryString = "SELECT total FROM CustomerBill WHERE custPhone=':phone'";
 
 	$query = oci_parse($conn,$queryString);
 	oci_bind_by_name($query,':phone',$number);
@@ -120,6 +120,7 @@ function getCustInfo($number)
 
 	if(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 		$total = $total + (int)$row[0];
+		echo "1," . $row[0];
 	} else {
 		echo "1, Customer is Not Billed for this number: " . $number;
 		exit();
