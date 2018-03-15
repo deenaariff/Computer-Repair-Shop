@@ -64,14 +64,14 @@ function getCustInfo($number)
 		exit();
 	}
 
+	echo "1, Break1";
+
 	/* iterate over all repsonses that match */
 
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
 
 		// do a nother query here to get the model for a given item id
 		$itemId = $row[0];
-
-		echo "1",$itemId;
 
 		$queryString2 = "SELECT model FROM RepairItem WHERE itemId = :itemId";
 
@@ -92,7 +92,6 @@ function getCustInfo($number)
 		}
 
 		/* push all other data into respective arrays */
-
 		if(array_key_exists(1,$row)) {	
 			array_push($contracts,$row[1]);	
 		} else {
@@ -118,15 +117,6 @@ function getCustInfo($number)
 			$total = $total + (int)$row3[0];
 			array_push($prices,(int)$row3[0]);
 		}
-
-		if(array_key_exists(1,$row)) {
-			array_push($contracts,$row[1]);
-		} else {
-			array_push($contracts,"NO CONTRACT");
-		}
-
-		array_push($descriptions,$row[2]);
-		array_push($dates,$row[3]);
 
 	}
 
