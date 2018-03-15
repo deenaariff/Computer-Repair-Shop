@@ -13,7 +13,6 @@ INSERT INTO RepairPerson VALUES('e01','john smith','408-666-6666');
 INSERT INTO RepairJob VALUES('002','S02','408-663-7143','e01',DATE '2018-03-10','UNDER_REPAIR');
 INSERT INTO RepairLog VALUES('001','S01','No Problems','408-663-7143','e01',DATE '2018-03-10',DATE '2018-03-17','DONE');
 
-
 declare
 	msg  VARCHAR2(60);
 begin
