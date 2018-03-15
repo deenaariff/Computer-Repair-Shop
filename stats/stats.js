@@ -31,9 +31,8 @@ $(document).ready(function(){
 
 	scope.fetchPHPdata({}, "repairLogStats.php", function(result,data) {
 		if(result == 0) {
-			var split = data.split(",");
-			var labels = split[0].split("|");
-			var data = split[1].split("|");
+			var labels = data[0].split("|");
+			var data = data[1].split("|");
 			drawChart1(labels,data);
 		} else {
 			console.log("Error");
