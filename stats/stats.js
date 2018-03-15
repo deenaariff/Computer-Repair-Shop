@@ -36,6 +36,13 @@ $(document).ready(function(){
 		      title: {
 		        display: true,
 		        text: 'Repair Logs Per Customer'
+		      },
+		      scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
 		      }
 		    }
 
