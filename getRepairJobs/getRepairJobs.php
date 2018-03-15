@@ -14,8 +14,7 @@ function getRepairJobs()
 		exit();
 	}
 
-
-	$queryString = "SELECT * FROM table(getRepairJobs());";
+	$queryString = "select * from table(getRepairJobs())";
 	
 	$query = oci_parse($conn,$queryString);
 
