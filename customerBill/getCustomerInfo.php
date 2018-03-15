@@ -71,6 +71,8 @@ function getCustInfo($number)
 		// do a nother query here to get the model for a given item id
 		$itemId = $row[0];
 
+		echo $itemId;
+
 		$queryString2 = "SELECT model FROM RepairItem WHERE itemId = :itemId";
 
 		$query2 = oci_parse($conn,$queryString2);
