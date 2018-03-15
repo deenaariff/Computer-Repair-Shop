@@ -14,7 +14,7 @@ $arg2 = $_GET['phone'];
 
 showMachineStatus($arg1, $arg2);
 
-function showMachineStatus($machine_id, $number)
+function showMachineStatus($machine_id, $p_number)
 {
 	$conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 	if(!$conn) {
@@ -22,17 +22,17 @@ function showMachineStatus($machine_id, $number)
 		exit();
 	}
 
-	$queryString = "select * from table(showMachineStatus(:id,:number))";
+	$queryString = "select * from table(showMachineStatus(:m_id,:cust_number))";
 	
 	$query = oci_parse($conn,$queryString);
 
-	oci_bind_by_name($query,':id',$machine_id);
-	oci_bind_by_name($query,':number',$number);
+	oci_bind_by_name($query,':m_id',$machine_id);
+	oci_bind_by_name($query,':cust_number',$p_number);
 
 	$res = oci_execute($query);
 
 	if(!$res) {
-		echo "1, Error in Database Query " . $machine_id . $number;
+		echo "1, Error in Database Query " . $machine_id . $p_number;
 		exit();
 	}
 
