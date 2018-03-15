@@ -13,40 +13,15 @@ body {
 }
 
 .main {
-             height: 100%;
-             width: 100%;
-             display: table;
-         }
-         .wrapper {
-             display: table-cell;
-             height: 100%;
-             vertical-align: middle;
-         }
-
-input::-webkit-input-placeholder{
-    color:#555;
+   height: 100%;
+   width: 100%;
+   display: table;
 }
-input:-moz-placeholder {
-    color:#555;
+.wrapper {
+   display: table-cell;
+   height: 100%;
+   vertical-align: middle;
 }
-
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    background: transparent;
-    background-color: none;
-    border: none;
-    border-bottom: 1px solid #000000;
-}
-
-input[type=text]:focus {
-  outline-color: transparent;
-  outline-style: none;
-}
-
 
 label {
     padding: 12px 12px 12px 0;

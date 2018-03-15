@@ -2,7 +2,6 @@
 
 	console.log('revenue.js has been invoked')
 
-
 	$(document).ready(function(){
 
 		$(function() {
