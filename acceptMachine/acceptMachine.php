@@ -22,7 +22,7 @@ function acceptMachine($name, $model, $number, $c_id)
 	}
 
 	$date = date("Y-m-d");
-	$date_string = "DATE " . $date;
+	$date_string = "DATE '" . $date . "'";
 
 	/*acceptMachine(n_name,n_item,model,cId,in_date,message OUT VARCHAR2)*/
 	$queryString = "BEGIN acceptMachine(:name,:phone,:model,:cid," . $date_string . ",:msg); END;";
