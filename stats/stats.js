@@ -107,7 +107,6 @@ $(document).ready(function(){
 	var createRows = function(rows) {
 		$('#repairTable').append(createRow("ItemID","ContractID","EmpNo","Arrival","Done","heading"));
 		for(var i = 0; i < rows.length; i++) {
-			//console.log(rows[i]);
 			row = rows[i].split("|");
 			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
 		}
@@ -125,7 +124,6 @@ $(document).ready(function(){
 	var createRows2 = function(rows) {
 		$('#contractTable').append(createRow("ContractID","Phone","Start Date","End Date","Type","heading"));
 		for(var i = 0; i < rows.length; i++) {
-			//console.log(rows[i]);
 			row = rows[i].split("|");
 			$('#contractTable').append(createRow(row[0],row[1],row[2],row[3],row[4],"title"));
 		}
@@ -134,6 +132,33 @@ $(document).ready(function(){
 	scope.fetchPHPdata({}, "getContracts.php", function(result,data) {
 		if(result == 0) {
 			createRows2(data);
+		} else {
+			console.log("Error");
+		}
+	});
+
+	var createRow2 = function (model,price,cost,classr) {
+		return "<tr class='row_entry "+classr+"'>" +
+               "<td>" + model + "</td>" +
+               "<td>" + price + "</td>" +
+               "<td>" + cost + "</td>" +
+               "<td>" + hours + "</td>" +
+               "<td>" + description + "</td>" +
+               "</tr>"
+	}
+
+	//employeeNo, empName, empPhone
+	var createRows3 = function(rows) {
+		$('#empTable').append(createRow2("Emp Id","Employee","Phone","heading"));
+		for(var i = 0; i < rows.length; i++) {
+			row = rows[i].split("|");
+			$('#empTable').append(createRow2(row[0],row[1],row[2],"title"));
+		}
+	}
+
+	scope.fetchPHPdata({}, "getContracts.php", function(result,data) {
+		if(result == 0) {
+			createRows3(data);
 		} else {
 			console.log("Error");
 		}
