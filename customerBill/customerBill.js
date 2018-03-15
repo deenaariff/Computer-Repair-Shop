@@ -56,7 +56,7 @@
 			}
 			m['items'] = [];
 			for(var i = 0; i < matrix[0].length; i++) {
-				var model = matrix[5][i] + " - " + matrix[1][i] + " (" + matrix[0][i] + ")";
+				var model = matrix[4][i] + " - " + matrix[1][i] + " (" + matrix[0][i] + ")";
 				var description = matrix[2][i];
 				var date = matrix[3][i];
 				m['items'].push([model,description,date]);
