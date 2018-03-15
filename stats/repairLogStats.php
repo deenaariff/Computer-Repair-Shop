@@ -1,6 +1,5 @@
 <?php
 
-exit();
 
 $conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 if(!$conn) {

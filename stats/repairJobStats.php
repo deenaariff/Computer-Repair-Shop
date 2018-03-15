@@ -1,7 +1,6 @@
 <?php
 
 /* query for a customer name given the customer phone number */
-exit();
 
 $conn=oci_connect('mcai','magstar816','dbserver.engr.scu.edu/db11g');
 if(!$conn) {
