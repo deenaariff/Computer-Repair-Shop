@@ -8,7 +8,7 @@ if(!$conn) {
 
 /* query for a customer name given the customer phone number */
 
-$queryString = "SELECT name,count(*) FROM (SELECT C.name, itemId FROM Customers C, RepairLog R WHERE C.phoneNo = R.custNo) GROUP BY NAME";
+$queryString = "SELECT name,count(*) FROM (SELECT C.name, itemId FROM Customers C, RepairLog R WHERE C.phoneNo = R.custPhone) GROUP BY NAME";
 
 $query = oci_parse($conn,$queryString);
 oci_bind_by_name($query,':phone',$number);
