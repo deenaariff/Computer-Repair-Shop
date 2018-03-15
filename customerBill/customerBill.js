@@ -40,7 +40,7 @@
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
 				var row = items[i];
-				$('#billTable').append(createRow(row[0],row[2],row[3],row[4],row[5],row[6],"title"));
+				$('#billTable').append(createRow(row[0],row[1],row[2],row[3],row[4],row[5],"title"));
 				sum += row[1];
 			}
 		}
