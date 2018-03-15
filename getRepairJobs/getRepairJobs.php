@@ -28,7 +28,7 @@ function getRepairJobs()
 	$data = array();
 
 	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-		array_push($data,implode("|",$row));
+		echo json_encode($row);
 	}
 
     echo "0," . implode(",",$data);
