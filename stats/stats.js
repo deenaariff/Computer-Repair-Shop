@@ -163,16 +163,16 @@ $(document).ready(function(){
 	}
 
 	//employeeNo, empName, empPhone
-	var createRows3 = function(rows) {
+	var createRows3 = function(employees) {
 		$('#empTable').append(createRow2("Emp Id","Employee","Phone","heading"));
-		for(var i = 0; i < rows.length; i++) {
-			var row = rows[i].split("|");
-			console.log(row);
-			$('#empTable').append(createRow2(row[0],row[1],row[2],"title"));
+		for(var i = 0; i < employees.length; i++) {
+			var emp = employees[i].split("|");
+			console.log(emp);
+			$('#empTable').append(createRow2(emp[0],emp[1],emp[2],"title"));
 		}
 	}
 
-	scope.fetchPHPdata({}, "getContracts.php", function(result,data) {
+	scope.fetchPHPdata({}, "getEmployees.php", function(result,data) {
 		if(result == 0) {
 			createRows3(data);
 		} else {
