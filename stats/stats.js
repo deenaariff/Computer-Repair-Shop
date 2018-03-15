@@ -142,8 +142,6 @@ $(document).ready(function(){
                "<td>" + model + "</td>" +
                "<td>" + price + "</td>" +
                "<td>" + cost + "</td>" +
-               "<td>" + hours + "</td>" +
-               "<td>" + description + "</td>" +
                "</tr>"
 	}
 
