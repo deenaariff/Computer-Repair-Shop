@@ -107,7 +107,7 @@ $(document).ready(function(){
 	//itemID, contractID, custPhone, empNo, timeOfArrival, DONEDATE
 	var createRows = function(rows) {
 		$('#repairTable').append(createRow("ItemID","ContractID","CustPhone","EmpNo","Arrival","Done","heading"));
-		for(int i = 0; i < rows.length; i++) {
+		for(var i = 0; i < rows.length; i++) {
 			row = rows[i].split("|");
 			$('#repairTable').append(createRow(row[0],row[1],row[2],row[3],row[4],row[5],"title"));
 		}
