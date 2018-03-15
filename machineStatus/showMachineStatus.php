@@ -22,7 +22,7 @@ function showMachineStatus($machine_id, $number)
 		exit();
 	}
 
-	$queryString = "BEGIN :res := showMachineStatus(:id,:number); END;";
+	$queryString = "select * from table(showMachineStatus(:id,:number))";
 	
 	$query = oci_parse($conn,$queryString);
 
@@ -37,7 +37,14 @@ function showMachineStatus($machine_id, $number)
 		exit();
 	}
 
-    echo "0," . $str;
+	$str = "";
+
+    while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+		//echo json_encode($row);
+		$str = $str . $row[0] . "is" . $row[1] . ". ";
+	};
+
+	echo "0, " . $str
 }
 
 ?>
