@@ -5,6 +5,10 @@
 
 	$(document).ready(function(){
 
+		$(function() {
+		   $("#datepicker").datepicker();
+		});
+
 		$('.submit_button').click(function(e) {	
 
 		  e.preventDefault()  
