@@ -35,12 +35,12 @@
 		function fieldUpdate(m) {
 			$("#cust_info").html(getCustInfo(m));
 			$('.row_entry').remove()
-			$('#billTable').append(createRow("Model","ContractID","Price","Parts cost","Labor Hours","Description","Date","heading"));
+			$('#billTable').append(createRow("Model (Contract ID)","Price","Parts cost","Labor Hours","Description","Date","heading"));
 			var items = m['items']
 			var sum = 0.0;
 			for(var i = 0; i < items.length; i++) {
 				var row = items[i];
-				$('#billTable').append(createRow(row[0],row[1],row[2],row[3],row[4],row[5],row[6],"title"));
+				$('#billTable').append(createRow(row[0] + "(" + row[1] + ")",row[2],row[3],row[4],row[5],row[6],"title"));
 				sum += row[1];
 			}
 		}
