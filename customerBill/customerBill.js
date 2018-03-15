@@ -46,6 +46,8 @@
 
 		/* update the model with a given array of data */
 		function updateCustomerInfo(m,data) {
+			console.log("Logging data");
+			console.log(data);
 			m['customer_name'] = data[0];
 			m['customer_phone'] = data[1];
 			var matrix = [];
