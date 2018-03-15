@@ -9,7 +9,7 @@ if(!$conn) {
 }
 
 
-$queryString = "SELECT itemID, contractID, custPhone, empNo, TIMEOFARR, DONEDATE FROM RepairLogs";
+$queryString = "SELECT itemID, contractID, custPhone, empNo, TIMEOFARR, DONEDATE FROM RepairLog";
 
 $query = oci_parse($conn,$queryString);
 $res = oci_execute($query);
