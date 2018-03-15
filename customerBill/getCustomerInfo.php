@@ -57,6 +57,8 @@ function getCustInfo($number)
 	$dates = array();
 	$descriptions = array();
 	$prices = array();
+	$costs = array();
+	$l_hours = array();
 	$total = 0;
 	$count = 0;
 
@@ -96,7 +98,7 @@ function getCustInfo($number)
 		array_push($dates,$row[3]);
 
 		/* serialize the data for consumption by the front-end */
-		$queryString = "SELECT total FROM CustomerBill WHERE itemId = :itemId";
+		$queryString = "SELECT total, costofparts, laborhours FROM CustomerBill WHERE itemId = :itemId";
 
 		$query3 = oci_parse($conn,$queryString);
 		oci_bind_by_name($query3,':itemId',$itemId);
@@ -110,6 +112,8 @@ function getCustInfo($number)
 		if(($row3=oci_fetch_array($query3,OCI_BOTH)) != false) {
 			$total = $total + (int)$row3[0];
 			array_push($prices,(int)$row3[0]);
+			array_push($costs,(int)$row3[1]);
+			array_push($l_hours,(int)$row3[2]);
 		}
 
 		$count += 1;
@@ -126,8 +130,10 @@ function getCustInfo($number)
 	$description_str = implode("|",$descriptions);
 	$dates_str = implode("|",$dates);	
 	$price_str = implode("|",$prices);
+	$costs_str = implod("|",$costs);
+	$hours_str = implod("|",$l_hours);
 
-	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $price_str, 7 => $total);
+	$arr = array ( 0 => $name, 1 => $number, 2 => $contract_str, 3 => $model_str, 4 => $description_str, 5 => $dates_str, 6 => $price_str, 7 => $costs_str, 8 => $hours_str, 9 => $total);
 
 	$str = implode (",", $arr);
     echo "0," . $str;
