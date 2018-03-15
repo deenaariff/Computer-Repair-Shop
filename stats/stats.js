@@ -115,8 +115,7 @@ $(document).ready(function(){
 		
 	scope.fetchPHPdata({}, "getRepairJobs.php", function(result,data) {
 		if(result == 0) {
-			var rows = data.split(",");
-			createRows(rows);
+			createRows(data);
 		} else {
 			console.log("Error");
 		}
