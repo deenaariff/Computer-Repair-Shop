@@ -56,7 +56,7 @@ function getCustInfo($number)
 	$contracts = array();
 	$dates = array();
 	$descriptions = array();
-	$price = array();
+	$prices = array();
 	$total = 0;
 
 	/* iterate over all repsonses that match */
