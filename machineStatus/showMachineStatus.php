@@ -26,7 +26,6 @@ function showMachineStatus($machine_id, $number)
 	
 	$query = oci_parse($conn,$queryString);
 
-	oci_bind_by_name($query,':res', $str, 22, SQLT_CHR);
 	oci_bind_by_name($query,':id', $machine_id);
 	oci_bind_by_name($query,':number',$number);
 
