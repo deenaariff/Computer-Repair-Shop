@@ -14,13 +14,10 @@ function getRepairJobs()
 		exit();
 	}
 
-	$p_cursor = oci_new_cursor($conn);
 
-	$queryString = "BEGIN :curs := getRepairJobs(); END;";
+	$queryString = "SELECT * FROM table(getRepairJobs());";
 	
 	$query = oci_parse($conn,$queryString);
-
-	oci_bind_by_name($query,':curs', $p_cursor, -1, OCI_B_CURSOR);
 
 	$res = oci_execute($query);
 
@@ -29,9 +26,8 @@ function getRepairJobs()
 		exit();
 	}
 
-	oci_execute($p_cursor);  // Execute the REF CURSOR like a normal statement id
-	while (($row = oci_fetch_array($p_cursor, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
-    	echo $row[0];
+	while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
+		echo "1", $row[0];
 	}
 
     echo "0," . $str;
