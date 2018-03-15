@@ -9,7 +9,7 @@ if(!$conn) {
 }
 
 
-$queryString = "SELECT itemID, contractID, custPhone, empNo, timeOfArrival, DONEDATE FROM RepairLog";
+$queryString = "SELECT itemID, custPhone, empNo, timeOfArrival, DONEDATE FROM RepairLog";
 
 $query = oci_parse($conn,$queryString);
 $res = oci_execute($query);
@@ -22,7 +22,7 @@ if(!$res) {
 $rows = array();
 
 while(($row=oci_fetch_array($query,OCI_BOTH)) != false) {
-	$entry = $row[0]  . "|" . $row[1] . "|" . $row[2] . "|" . $row[3] . "|" . $row[4] . "|" . $row[5];
+	$entry = $row[0]  . "|" . $row[1] . "|" . $row[2] . "|" . $row[3] . "|" . $row[4];
 	array_push($rows,$entry);
 }
 
