@@ -19,7 +19,7 @@
 		}
 
 		/* Helper function to generate html for a table row of data*/
-		var createRow = function (model,contract,price,cost,hours,description,date,classr) {
+		var createRow = function (model,price,cost,hours,description,date,classr) {
 			return "<tr class='row_entry "+classr+"'>" +
 	               "<td>" + model + "</td>" +
 	               "<td>" + contract + "</td>" +
